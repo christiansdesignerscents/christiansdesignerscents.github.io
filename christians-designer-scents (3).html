@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Christian's Designer Scents</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F8F5F0;
+    --ivory: #EDE9E1;
+    --charcoal: #1C1B18;
+    --charcoal-light: #3D3C37;
+    --muted: #8A897F;
+    --gold: #B09A72;
+    --gold-light: #D4C4A8;
+    --white: #FFFFFF;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 5%;
+    background: rgba(248, 245, 240, 0.9);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--gold-light);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--charcoal);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--gold); }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+  }
+
+  nav ul a {
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--charcoal-light);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  nav ul a:hover { color: var(--gold); }
+
+  .nav-cta {
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: var(--charcoal);
+    color: var(--cream) !important;
+    padding: 0.55rem 1.4rem;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--gold) !important; color: var(--white) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding-top: 80px;
+  }
+
+  .hero-text {
+    padding: 6rem 5% 6rem 8%;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 2rem;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5.5vw, 5rem);
+    font-weight: 300;
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.75rem;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 400px;
+    margin-bottom: 3rem;
+    line-height: 1.8;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--charcoal);
+    color: var(--cream);
+    padding: 1rem 2.5rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.25s, transform 0.15s;
+  }
+
+  .btn-primary:hover {
+    background: var(--gold);
+    transform: translateY(-1px);
+  }
+
+  .btn-outline {
+    display: inline-block;
+    border: 1px solid var(--charcoal);
+    color: var(--charcoal);
+    padding: 1rem 2.5rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-left: 1rem;
+    transition: background 0.25s, color 0.25s;
+  }
+
+  .btn-outline:hover {
+    background: var(--charcoal);
+    color: var(--cream);
+  }
+
+  .hero-visual {
+    height: 100vh;
+    background: var(--charcoal);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 30% 40%, rgba(176,154,114,0.2) 0%, transparent 60%),
+      radial-gradient(ellipse at 70% 70%, rgba(176,154,114,0.1) 0%, transparent 50%);
+  }
+
+  .hero-bottle {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+  }
+
+  .bottle-svg {
+    width: 160px;
+    opacity: 0.95;
+    animation: float 5s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-14px); }
+  }
+
+  .hero-tagline {
+    margin-top: 2rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--gold-light);
+    letter-spacing: 0.05em;
+  }
+
+  /* MARQUEE STRIP */
+  .marquee-strip {
+    background: var(--charcoal);
+    color: var(--gold-light);
+    padding: 0.9rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .marquee-inner {
+    display: inline-block;
+    animation: marquee 28s linear infinite;
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .marquee-sep { margin: 0 2rem; color: var(--gold); }
+
+  /* SECTION LAYOUT */
+  section { padding: 7rem 8%; }
+
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 2rem;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  h2 em { font-style: italic; color: var(--gold); }
+
+  /* COLLECTIONS */
+  .collections-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+  }
+
+  .collections-header p {
+    max-width: 340px;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .scents-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .scent-card {
+    background: var(--white);
+    border: 1px solid var(--ivory);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  .scent-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(28,27,24,0.08);
+  }
+
+  .scent-card:hover .card-visual {
+    background: var(--charcoal);
+  }
+
+  .card-visual {
+    height: 220px;
+    background: var(--ivory);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.4s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-visual::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 60px;
+    background: linear-gradient(to top, rgba(237,233,225,0.4), transparent);
+    transition: opacity 0.4s;
+  }
+
+  .scent-card:hover .card-visual::after { opacity: 0; }
+
+  .card-bottle { width: 60px; transition: transform 0.4s; }
+  .scent-card:hover .card-bottle { transform: scale(1.08); }
+
+  .card-body { padding: 1.75rem; }
+
+  .card-category {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+
+  .card-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-desc {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.65;
+    margin-bottom: 1.25rem;
+  }
+
+  .card-notes {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+
+  .note-tag {
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1px solid var(--gold-light);
+    color: var(--charcoal-light);
+    padding: 0.25rem 0.65rem;
+  }
+
+  .card-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--charcoal);
+  }
+
+  /* STORY SECTION */
+  .story {
+    background: var(--charcoal);
+    color: var(--cream);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .story .section-label { color: var(--gold-light); }
+  .story .section-label::before { background: var(--gold-light); }
+
+  .story h2 { color: var(--cream); }
+
+  .story p {
+    color: rgba(248,245,240,0.65);
+    font-size: 0.97rem;
+    line-height: 1.85;
+    margin-bottom: 1.5rem;
+  }
+
+  .story .btn-primary {
+    background: var(--gold);
+    color: var(--white);
+    margin-top: 1rem;
+  }
+
+  .story .btn-primary:hover { background: var(--cream); color: var(--charcoal); }
+
+  .story-stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 3rem;
+  }
+
+  .story-stat {
+    background: rgba(255,255,255,0.04);
+    padding: 2rem 1.75rem;
+    border: 1px solid rgba(176,154,114,0.2);
+  }
+
+  .story-stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  .story-stat-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(248,245,240,0.4);
+  }
+
+  /* PROCESS */
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    margin-top: 5rem;
+  }
+
+  .process-step { position: relative; }
+
+  .step-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    font-weight: 300;
+    color: var(--ivory);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .step-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+  }
+
+  .step-desc {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* CONTACT */
+  .contact {
+    background: var(--ivory);
+    text-align: center;
+    padding: 8rem 8%;
+  }
+
+  .contact h2 { margin-bottom: 1rem; }
+
+  .contact p {
+    color: var(--muted);
+    font-size: 0.97rem;
+    max-width: 500px;
+    margin: 0 auto 3rem;
+  }
+
+  .contact-form {
+    max-width: 520px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    background: var(--white);
+    border: 1px solid var(--gold-light);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: var(--charcoal);
+    outline: none;
+    resize: none;
+    transition: border-color 0.2s;
+  }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus { border-color: var(--gold); }
+
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder { color: var(--muted); }
+
+  .contact-form button {
+    background: var(--charcoal);
+    color: var(--cream);
+    border: none;
+    padding: 1rem 2.5rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.25s;
+    align-self: flex-start;
+  }
+
+  .contact-form button:hover { background: var(--gold); }
+
+  /* FOOTER */
+  footer {
+    background: var(--charcoal);
+    color: rgba(248,245,240,0.45);
+    padding: 3rem 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--cream);
+    letter-spacing: 0.08em;
+  }
+
+  .footer-logo span { color: var(--gold); }
+
+  footer a {
+    color: rgba(248,245,240,0.45);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  footer a:hover { color: var(--gold-light); }
+
+  /* ANIMATIONS */
+  .fade-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-in.hidden {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-visual { height: 50vh; }
+    .scents-grid { grid-template-columns: 1fr 1fr; }
+    .story { grid-template-columns: 1fr; }
+    .process-grid { grid-template-columns: 1fr 1fr; }
+    nav ul { display: none; }
+  }
+
+  @media (max-width: 580px) {
+    .scents-grid, .process-grid { grid-template-columns: 1fr; }
+    .collections-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  }
+
+  .whatsapp-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    width: 100%;
+    background: #25D366;
+    color: #fff;
+    border: none;
+    padding: 0.7rem 1rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .whatsapp-btn:hover { background: #1ebe5d; transform: translateY(-1px); }
+
+  /* DELIVERY SECTION */
+  .delivery { padding: 5rem 8%; }
+  .delivery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3.5rem;
+  }
+  .delivery-card {
+    background: var(--white);
+    border: 1px solid var(--gold-light);
+    padding: 2rem 1.75rem;
+    text-align: center;
+  }
+  .delivery-icon { font-size: 2rem; margin-bottom: 1rem; }
+  .delivery-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+  }
+  .delivery-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+  .delivery-fee {
+    display: inline-block;
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    font-weight: 500;
+  }
+  @media (max-width: 700px) { .delivery-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Christian's <span>Designer</span> Scents</a>
+  <ul>
+    <li><a href="#collections">Collections</a></li>
+    <li><a href="#story">Our Story</a></li>
+    <li><a href="#delivery">Delivery</a></li>
+    <li><a href="#contact" class="nav-cta">Shop Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <p class="hero-eyebrow">Luxury Fragrance House</p>
+    <h1>Wear the <em>art</em><br>of fine scent.</h1>
+    <p class="hero-sub">Every bottle is a story — crafted with rare ingredients, bottled in elegance, and worn with intention. Discover your signature.</p>
+    <a href="#collections" class="btn-primary">Explore Collection</a>
+    <a href="#story" class="btn-outline">Our Story</a>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-bottle">
+      <!-- Perfume bottle SVG -->
+      <svg class="bottle-svg" viewBox="0 0 160 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="62" y="8" width="36" height="22" rx="4" fill="#B09A72" opacity="0.9"/>
+        <rect x="72" y="2" width="16" height="10" rx="3" fill="#D4C4A8"/>
+        <rect x="28" y="30" width="104" height="230" rx="18" fill="url(#bottleGrad)" opacity="0.95"/>
+        <rect x="28" y="30" width="104" height="230" rx="18" stroke="#B09A72" stroke-width="1" fill="none" opacity="0.5"/>
+        <rect x="42" y="80" width="76" height="100" rx="4" fill="none" stroke="#D4C4A8" stroke-width="0.75" opacity="0.5"/>
+        <text x="80" y="122" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="11" fill="#D4C4A8" opacity="0.9">Christian's</text>
+        <text x="80" y="140" text-anchor="middle" font-family="Georgia, serif" font-size="9" fill="#B09A72" letter-spacing="3">DESIGNER</text>
+        <text x="80" y="156" text-anchor="middle" font-family="Georgia, serif" font-size="9" fill="#B09A72" letter-spacing="3">SCENTS</text>
+        <ellipse cx="80" cy="50" rx="40" ry="8" fill="#D4C4A8" opacity="0.15"/>
+        <defs>
+          <linearGradient id="bottleGrad" x1="28" y1="30" x2="132" y2="260" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#2C2B26"/>
+            <stop offset="0.4" stop-color="#3D3C37"/>
+            <stop offset="1" stop-color="#1C1B18"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <p class="hero-tagline">"Scent is memory made invisible."</p>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-inner">
+    Oud & Amber<span class="marquee-sep">✦</span>
+    Rose De Mai<span class="marquee-sep">✦</span>
+    Bergamot<span class="marquee-sep">✦</span>
+    Cedarwood<span class="marquee-sep">✦</span>
+    Vetiver<span class="marquee-sep">✦</span>
+    Sandalwood<span class="marquee-sep">✦</span>
+    Neroli<span class="marquee-sep">✦</span>
+    Black Musk<span class="marquee-sep">✦</span>
+    Jasmine Absolute<span class="marquee-sep">✦</span>
+    Tonka Bean<span class="marquee-sep">✦</span>
+    Oud & Amber<span class="marquee-sep">✦</span>
+    Rose De Mai<span class="marquee-sep">✦</span>
+    Bergamot<span class="marquee-sep">✦</span>
+    Cedarwood<span class="marquee-sep">✦</span>
+    Vetiver<span class="marquee-sep">✦</span>
+    Sandalwood<span class="marquee-sep">✦</span>
+    Neroli<span class="marquee-sep">✦</span>
+    Black Musk<span class="marquee-sep">✦</span>
+    Jasmine Absolute<span class="marquee-sep">✦</span>
+    Tonka Bean<span class="marquee-sep">✦</span>
+  </div>
+</div>
+
+<!-- COLLECTIONS -->
+<section id="collections">
+  <div class="collections-header fade-in">
+    <div>
+      <p class="section-label">Signature Collection</p>
+      <h2>Scents that<br><em>define</em> you.</h2>
+    </div>
+    <p>Each fragrance is composed to evoke emotion, memory, and identity — bottled with intention.</p>
+  </div>
+
+  <!-- Filter tabs -->
+  <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:3rem;" id="filter-bar">
+    <button class="filter-btn active" onclick="filterScents('all')">All</button>
+    <button class="filter-btn" onclick="filterScents('men')">Men</button>
+    <button class="filter-btn" onclick="filterScents('women')">Women</button>
+    <button class="filter-btn" onclick="filterScents('unisex')">Unisex</button>
+  </div>
+
+  <div class="scents-grid" id="scents-grid">
+
+    <!-- 1 -->
+    <div class="scent-card fade-in" data-gender="men">
+      <div class="card-visual" style="background:#E8EDF2;">
+        <svg class="card-bottle" viewBox="0 0 60 110" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="22" y="3" width="16" height="10" rx="3" fill="#4A6882"/><rect x="10" y="13" width="40" height="90" rx="8" fill="#C5D5E4"/><rect x="10" y="13" width="40" height="90" rx="8" stroke="#4A6882" stroke-width="0.75" fill="none"/><rect x="17" y="35" width="26" height="36" rx="2" fill="none" stroke="#4A6882" stroke-width="0.5"/></svg>
+      </div>
+      <div class="card-body">
+        <p class="card-category">Fresh Spicy — Men</p>
+        <h3 class="card-name">Dior Sauvage</h3>
+        <p class="card-desc">Raw and noble. Bergamot and Ambroxan on a wide-open, radiant dry-down.</p>
+        <div class="card-notes"><span class="note-tag">Bergamot</span><span class="note-tag">Pepper</span><span class="note-tag">Ambroxan</span></div>
+        <span class="card-price">KES 5,500</span>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="scent-card fade-in" data-gender="women">
+      <div class="card-visual" style="background:#F5EEF5;">
+        <svg class="card-bottle" viewBox="0 0 60 110" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="22" y="3" width="16" height="10" rx="3" fill="#9B59B6"/><rect x="10" y="13" width="40" height="90" rx="8" fill="#E8D5F0"/><rect x="10" y="13" width="40" height="90" rx="8" stroke="#9B59B6" stroke-width="0.75" fill="none"/><rect x="17" y="35" width="26" height="36" rx="2" fill="none" stroke="#9B59B6" stroke-width="0.5"/></svg>
+      </div>
+      <div class="card-body">
+        <p class="card-category">Floral Gourmand — Women</p>
+        <h3 class="card-name">YSL Black Opium</h3>
+        <p class="card-desc">Addictive coffee and vanilla wrapped in electric white flowers. Bold and modern.</p>
+        <div class="card-notes"><span class="note-tag">Coffee</span><span class="note-tag">Vanilla</span><span class="note-tag">Jasmine</span></div>
+        <span class="card-price">KES 4,800</span>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="scent-card fade-in" data-gender="women">
+      <div class="card-visual" style="background:#FDF0F5;">
+        <svg class="card-bottle" viewBox="0 0 60 110" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="22" y="3" width="16" height="10" rx="3" fill="#C0395A"/><rect x="10" y="13" width="40" height="90" rx="8" fill="#F5C8D5"/><rect x="10" y="13" width="40" height="90" rx="8" stroke="#C0395A" stroke-width="0.75" fill="none"/><rect x="17" y="35" width="26" height="36" rx="2" fill="none" stroke="#C0395A" stroke-width="0.5"/></svg>
+      </div>
+      <div class="card-body">
+        <p class="card-category">Floral Gourmand — Women</p>
+        <h3 class="card-name">Viktor & Rolf Flowerbomb</h3>
+        <p class="card-desc">An explosion of florals — jasmine, rose, and freesia over a warm patchouli base.</p>
+        <div class="card-notes"><span class="note-tag">Rose</span><span class="note-tag">Jasmine</span><span class="note-tag">Patchouli</span></div>
+        <span class="card-price">KES 5,200</span>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="scent-card fade-in" data-gender="men">
+      <div class="card-visual" style="background:#EAF4F0;">
+        <svg class="card-bottle" viewBox="0 0 60 110" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="22" y="3" width="16" height="10" rx="3" fill="#2E7D5E"/><rect x="10" y="13" width="40" height="90" rx="8" fill="#C0E0D5"/><rect x="10" y="13" width="40" height="90" rx="8" stroke="#2E7D5E" stroke-width="0.75" fill="none"/><rect x="17" y="35" width="26" height="36" rx="2" fill="none" stroke="#2E7D5E" stroke-width="0.5"/></svg>
+      </div>
+      <div class="card-body">
+        <p class="card-category">Aquatic Aromatic — Men</p>
+        <h3 class="card-name">Acqua di Giò — Armani</h3>
+        <p class="card-desc">Mediterranean freshness. Sea notes, bergamot, and rosemary with a clean woody finish.</p>
+        <div class="card-notes"><span class="note-tag">Sea Notes</span><span class="note-tag">Bergamot</span><span class="note-tag">Rosemary</span></div>
+        <span class="card-price">KES 3,800</span>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="scent-card fade-in" data-gender="women">
+      <div class="card-visual" style="background:#FDF5EC;">
+        <svg class="card-bottle" viewBox="0 0 60 110" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="22" y="3" width="16" height="10" rx="3" fill="#C8860A"/><rect x="10" y="13" width="40" height="90" rx="8" fill="#F5DFB0"/><rect x="10" y="13" width="40" height="90" rx="8" stroke="#C8860A" stroke-width="0.75" fill="none"/><rect x="17" y="35" width="26" height="36" rx="2" fill="none" stroke="#C8860A" stroke-width="0.5"/></svg>
+      </div>
+      <div class="card-body">
+        <p class="card-category">Floral — Women</p>
+        <h3 class="card-name">La Vie Est Belle — Lancôme</h3>
+        <p class="card-desc">A joyful declaration. Iris, praline, and sandalwood in a warm, radiant embrace.</p>
+        <div class="card-notes"><span class="note-tag">Iris</span><span class="note-tag">Praline</span><span class="note-tag">Sandalwood</span></div>
+        <span class="card-price">KES 4,200</span>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="scent-card fade-in" data-gender="men">
+      <div class="card-visual" style="background:#EDEEF8;">
+        <svg class="card-bottle" viewBox="0 0 60 110" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="22" y="3" width="16" height="10" rx="3" fill="#3D4DAA"/><rect x="10" y="13" width="40" height="90" rx="8" fill="#C8CCF0"/><rect x="10" y="13" width="40" height="90" rx="8" stroke="#3D4DAA" stroke-width="0.75" fill="none"/><rect x="17" y="35" width="26" height="36" rx="2" fill="none" stroke="#3D4DAA" stroke-width="0.5"/></svg>
+      </div>
+      <div class="card-body">
+        <p class="card-category">Oriental Fougère — Men</p>
+        <h3 class="card-name">Versace Eros</h3>
+        <p class="card-desc">Mint, vanilla, and tonka bean collide in this bold, magnetic masculine fragrance.</p>
+        <div class="card-notes"><span class="note-tag">Mint</span><span class="note-tag">Vanilla</span><span class="note-tag">Tonka</span></div>
+        <span class="card-price">KES 3,500</span>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="scent-card fade-in" data-gender="men">
+      <div class="card-visual" style="background:#F5EDE8;">
+        <svg class="card-bottle" viewBox="0 0 60 110" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="22" y="3" width="16" height="10" rx="3" fill="#A0522D"/><rect x="10" y="13" width="40" height="90" rx="8" fill="#E8CCBA"/><rect x="10" y="13" width="40" height="90" rx="8" stroke="#A0522D" stroke-width="0.75" fill="none"/><rect x="17" y="35" width="26" height="36" rx="2" fill="none" stroke="#A0522D" stroke-width="0.5"/></svg>
+      </div>
+      <div class="card-body">
+        <p class="card-category">Oriental Spicy — Men</p>
+        <h3 class="card-name">Paco Rabanne 1 Million</h3>
+        <p class="card-desc">Seductive gold-leather. Blood mandarin, rose, and patchouli — a scent that turns heads.</p>
+        <div class="card-notes"><span class="note-tag">Mandarin</span><span class="note-tag">Rose</span><span class="note-tag">Leather</span></div>
+        <span class="card-price">KES 4,000</span>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="scent-card fade-in" data-gender="women">
+      <div class="card-visual" style="background:#F0F5F0;">
+        <svg class="card-bottle" viewBox="0 0 60 110" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="22" y="3" width="16" height="10" rx="3" fill="#3A7D44"/><rect x="10" y="13" width="40" height="90" rx="8" fill="#C5DFC8"/><rect x="10" y="13" width="40" height="90" rx="8" stroke="#3A7D44" stroke-width="0.75" fill="none"/><rect x="17" y="35" width="26" height="36" rx="2" fill="none" stroke="#3A7D44" stroke-width="0.5"/></svg>
+      </div>
+      <div class="card-body">
+        <p class="card-category">Floral — Women</p>
+        <h3 class="card-name">Gucci Bloom</h3>
+        <p class="card-desc">A rich garden of tuberose, jasmine, and Rangoon creeper. Natural, opulent, feminine.</p>
+        <div class="card-notes"><span class="note-tag">Tuberose</span><span class="note-tag">Jasmine</span><span class="note-tag">Musk</span></div>
+        <span class="card-price">KES 3,200</span>
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="scent-card fade-in" data-gender="women">
+      <div class="card-visual" style="background:#F8F0EE;">
+        <svg class="card-bottle" viewBox="0 0 60 110" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="22" y="3" width="16" height="10" rx="3" fill="#B03060"/><rect x="10" y="13" width="40" height="90" rx="8" fill="#F0C8D0"/><rect x="10" y="13" width="40" height="90" rx="8" stroke="#B03060" stroke-width="0.75" fill="none"/><rect x="17" y="35" width="26" height="36" rx="2" fill="none" stroke="#B03060" stroke-width="0.5"/></svg>
+      </div>
+      <div class="card-body">
+        <p class="card-category">Floral Fruity — Women</p>
+        <h3 class="card-name">Versace Bright Crystal</h3>
+        <p class="card-desc">Light and feminine. Pomegranate, yuzu, and peony with a soft musk and mahogany base.</p>
+        <div class="card-notes"><span class="note-tag">Pomegranate</span><span class="note-tag">Peony</span><span class="note-tag">Musk</span></div>
+        <span class="card-price">KES 2,800</span>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="scent-card fade-in" data-gender="men">
+      <div class="card-visual" style="background:#EEF0F5;">
+        <svg class="card-bottle" viewBox="0 0 60 110" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="22" y="3" width="16" height="10" rx="3" fill="#2C3E6B"/><rect x="10" y="13" width="40" height="90" rx="8" fill="#BDC8E0"/><rect x="10" y="13" width="40" height="90" rx="8" stroke="#2C3E6B" stroke-width="0.75" fill="none"/><rect x="17" y="35" width="26" height="36" rx="2" fill="none" stroke="#2C3E6B" stroke-width="0.5"/></svg>
+      </div>
+      <div class="card-body">
+        <p class="card-category">Woody Aromatic — Men</p>
+        <h3 class="card-name">Bleu de Chanel</h3>
+        <p class="card-desc">A free-spirited woody aromatic. Citrus, labdanum, and sandalwood for the modern man.</p>
+        <div class="card-notes"><span class="note-tag">Citrus</span><span class="note-tag">Labdanum</span><span class="note-tag">Sandalwood</span></div>
+        <span class="card-price">KES 5,600</span>
+      </div>
+    </div>
+
+    <!-- 11 -->
+    <div class="scent-card fade-in" data-gender="unisex">
+      <div class="card-visual" style="background:#F0EDE8;">
+        <svg class="card-bottle" viewBox="0 0 60 110" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="22" y="3" width="16" height="10" rx="3" fill="#7D6B50"/><rect x="10" y="13" width="40" height="90" rx="8" fill="#DDD5C8"/><rect x="10" y="13" width="40" height="90" rx="8" stroke="#7D6B50" stroke-width="0.75" fill="none"/><rect x="17" y="35" width="26" height="36" rx="2" fill="none" stroke="#7D6B50" stroke-width="0.5"/></svg>
+      </div>
+      <div class="card-body">
+        <p class="card-category">Woody Oriental — Unisex</p>
+        <h3 class="card-name">Tom Ford Oud Wood</h3>
+        <p class="card-desc">Rare oud wood, rosewood, and cardamom blended into a warm, smoky, sophisticated signature.</p>
+        <div class="card-notes"><span class="note-tag">Oud</span><span class="note-tag">Cardamom</span><span class="note-tag">Amber</span></div>
+        <span class="card-price">KES 5,400</span>
+      </div>
+    </div>
+
+    <!-- 12 -->
+    <div class="scent-card fade-in" data-gender="unisex">
+      <div class="card-visual" style="background:#EAF0F0;">
+        <svg class="card-bottle" viewBox="0 0 60 110" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="22" y="3" width="16" height="10" rx="3" fill="#2D7373"/><rect x="10" y="13" width="40" height="90" rx="8" fill="#B8D8D8"/><rect x="10" y="13" width="40" height="90" rx="8" stroke="#2D7373" stroke-width="0.75" fill="none"/><rect x="17" y="35" width="26" height="36" rx="2" fill="none" stroke="#2D7373" stroke-width="0.5"/></svg>
+      </div>
+      <div class="card-body">
+        <p class="card-category">Fresh Marine — Unisex</p>
+        <h3 class="card-name">Jo Malone Wood Sage & Sea Salt</h3>
+        <p class="card-desc">Windswept and mineral. Ambrette, sea salt, and sage — effortlessly understated.</p>
+        <div class="card-notes"><span class="note-tag">Sea Salt</span><span class="note-tag">Sage</span><span class="note-tag">Ambrette</span></div>
+        <span class="card-price">KES 4,500</span>
+      </div>
+    </div>
+
+    <!-- 13 -->
+    <div class="scent-card fade-in" data-gender="unisex">
+      <div class="card-visual" style="background:#F5F0E8;">
+        <svg class="card-bottle" viewBox="0 0 60 110" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="22" y="3" width="16" height="10" rx="3" fill="#8B7355"/><rect x="10" y="13" width="40" height="90" rx="8" fill="#E8DFC8"/><rect x="10" y="13" width="40" height="90" rx="8" stroke="#8B7355" stroke-width="0.75" fill="none"/><rect x="17" y="35" width="26" height="36" rx="2" fill="none" stroke="#8B7355" stroke-width="0.5"/></svg>
+      </div>
+      <div class="card-body">
+        <p class="card-category">Aromatic — Unisex</p>
+        <h3 class="card-name">Replica Jazz Club — Maison Margiela</h3>
+        <p class="card-desc">Rum, pink pepper, and tobacco leaf — the smell of a late-night jazz bar. Warm and evocative.</p>
+        <div class="card-notes"><span class="note-tag">Rum</span><span class="note-tag">Tobacco</span><span class="note-tag">Vetiver</span></div>
+        <span class="card-price">KES 4,800</span>
+      </div>
+    </div>
+
+    <!-- 14 -->
+    <div class="scent-card fade-in" data-gender="men">
+      <div class="card-visual" style="background:#EBF0EB;">
+        <svg class="card-bottle" viewBox="0 0 60 110" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="22" y="3" width="16" height="10" rx="3" fill="#3B5E3B"/><rect x="10" y="13" width="40" height="90" rx="8" fill="#C0D4C0"/><rect x="10" y="13" width="40" height="90" rx="8" stroke="#3B5E3B" stroke-width="0.75" fill="none"/><rect x="17" y="35" width="26" height="36" rx="2" fill="none" stroke="#3B5E3B" stroke-width="0.5"/></svg>
+      </div>
+      <div class="card-body">
+        <p class="card-category">Woody Aromatic — Men</p>
+        <h3 class="card-name">Creed Aventus</h3>
+        <p class="card-desc">Pineapple, birch, and oakmoss in a legendary masculine fragrance of success and confidence.</p>
+        <div class="card-notes"><span class="note-tag">Pineapple</span><span class="note-tag">Birch</span><span class="note-tag">Oakmoss</span></div>
+        <span class="card-price">KES 5,600</span>
+      </div>
+    </div>
+
+    <!-- 15 -->
+    <div class="scent-card fade-in" data-gender="women">
+      <div class="card-visual" style="background:#FFF0F5;">
+        <svg class="card-bottle" viewBox="0 0 60 110" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="22" y="3" width="16" height="10" rx="3" fill="#CC6688"/><rect x="10" y="13" width="40" height="90" rx="8" fill="#F5C8DC"/><rect x="10" y="13" width="40" height="90" rx="8" stroke="#CC6688" stroke-width="0.75" fill="none"/><rect x="17" y="35" width="26" height="36" rx="2" fill="none" stroke="#CC6688" stroke-width="0.5"/></svg>
+      </div>
+      <div class="card-body">
+        <p class="card-category">Floral Aldehyde — Women</p>
+        <h3 class="card-name">Chanel No. 5</h3>
+        <p class="card-desc">The world's most iconic fragrance. Ylang-ylang, rose, and jasmine on a powdery, timeless base.</p>
+        <div class="card-notes"><span class="note-tag">Rose</span><span class="note-tag">Jasmine</span><span class="note-tag">Ylang-Ylang</span></div>
+        <span class="card-price">KES 5,200</span>
+      </div>
+    </div>
+
+    <!-- 16 -->
+    <div class="scent-card fade-in" data-gender="women">
+      <div class="card-visual" style="background:#F8F3EE;">
+        <svg class="card-bottle" viewBox="0 0 60 110" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="22" y="3" width="16" height="10" rx="3" fill="#B07840"/><rect x="10" y="13" width="40" height="90" rx="8" fill="#EDD8BE"/><rect x="10" y="13" width="40" height="90" rx="8" stroke="#B07840" stroke-width="0.75" fill="none"/><rect x="17" y="35" width="26" height="36" rx="2" fill="none" stroke="#B07840" stroke-width="0.5"/></svg>
+      </div>
+      <div class="card-body">
+        <p class="card-category">Oriental Floral — Women</p>
+        <h3 class="card-name">Good Girl — Carolina Herrera</h3>
+        <p class="card-desc">Duality in a stiletto bottle. Jasmine and tuberose above a dark base of cocoa and tonka.</p>
+        <div class="card-notes"><span class="note-tag">Jasmine</span><span class="note-tag">Cocoa</span><span class="note-tag">Tonka</span></div>
+        <span class="card-price">KES 2,000</span>
+      </div>
+    </div>
+
+    <!-- 17 -->
+    <div class="scent-card fade-in" data-gender="men">
+      <div class="card-visual" style="background:#EEEAF8;">
+        <svg class="card-bottle" viewBox="0 0 60 110" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="22" y="3" width="16" height="10" rx="3" fill="#6A4FA0"/><rect x="10" y="13" width="40" height="90" rx="8" fill="#D0C4E8"/><rect x="10" y="13" width="40" height="90" rx="8" stroke="#6A4FA0" stroke-width="0.75" fill="none"/><rect x="17" y="35" width="26" height="36" rx="2" fill="none" stroke="#6A4FA0" stroke-width="0.5"/></svg>
+      </div>
+      <div class="card-body">
+        <p class="card-category">Oriental Fougère — Men</p>
+        <h3 class="card-name">Invictus — Paco Rabanne</h3>
+        <p class="card-desc">Champion energy. Grapefruit, bay leaf, and ambergris for the relentlessly victorious.</p>
+        <div class="card-notes"><span class="note-tag">Grapefruit</span><span class="note-tag">Bay Leaf</span><span class="note-tag">Ambergris</span></div>
+        <span class="card-price">KES 3,000</span>
+      </div>
+    </div>
+
+    <!-- 18 -->
+    <div class="scent-card fade-in" data-gender="unisex">
+      <div class="card-visual" style="background:#F0EEF8;">
+        <svg class="card-bottle" viewBox="0 0 60 110" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="22" y="3" width="16" height="10" rx="3" fill="#5C4A8A"/><rect x="10" y="13" width="40" height="90" rx="8" fill="#CEC8E8"/><rect x="10" y="13" width="40" height="90" rx="8" stroke="#5C4A8A" stroke-width="0.75" fill="none"/><rect x="17" y="35" width="26" height="36" rx="2" fill="none" stroke="#5C4A8A" stroke-width="0.5"/></svg>
+      </div>
+      <div class="card-body">
+        <p class="card-category">Floral Musk — Unisex</p>
+        <h3 class="card-name">Narciso Rodriguez For Her</h3>
+        <p class="card-desc">Sensual skin musk and cedar with subtle florals. Intimate and addictively close to the skin.</p>
+        <div class="card-notes"><span class="note-tag">Musk</span><span class="note-tag">Rose</span><span class="note-tag">Cedarwood</span></div>
+        <span class="card-price">KES 2,500</span>
+      </div>
+    </div>
+
+  </div>
+
+  <style>
+    .filter-btn {
+      background: transparent;
+      border: 1px solid var(--gold-light);
+      color: var(--charcoal-light);
+      padding: 0.5rem 1.5rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--charcoal);
+      color: var(--cream);
+      border-color: var(--charcoal);
+    }
+    .scent-card[style*="display: none"] { display: none !important; }
+  </style>
+</section>
+
+<!-- STORY -->
+<section class="story" id="story">
+  <div class="fade-in">
+    <p class="section-label">Our Story</p>
+    <h2>Born from a<br><em>passion</em> for scent.</h2>
+    <p>Christian's Designer Scents was founded on a single belief: that fragrance is one of the most personal forms of self-expression. Every drop we craft is an invitation to feel something extraordinary.</p>
+    <p>We source rare botanicals from across the world — rose absolute from Grasse, oud resin from the Middle East, cedarwood from the Atlas Mountains — and combine them with meticulous artistry.</p>
+    <a href="#contact" class="btn-primary">Get in Touch</a>
+    <div class="story-stat-grid">
+      <div class="story-stat">
+        <div class="story-stat-number">40+</div>
+        <div class="story-stat-label">Unique Fragrances</div>
+      </div>
+      <div class="story-stat">
+        <div class="story-stat-number">100%</div>
+        <div class="story-stat-label">Natural Ingredients</div>
+      </div>
+      <div class="story-stat">
+        <div class="story-stat-number">12</div>
+        <div class="story-stat-label">Countries Sourced</div>
+      </div>
+      <div class="story-stat">
+        <div class="story-stat-number">5★</div>
+        <div class="story-stat-label">Customer Rating</div>
+      </div>
+    </div>
+  </div>
+  <div class="fade-in" style="display:flex; flex-direction:column; gap:1.5rem;">
+    <!-- Decorative quote block -->
+    <div style="border-left: 2px solid #B09A72; padding: 2rem 2.5rem; background: rgba(176,154,114,0.06);">
+      <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.5rem; color:rgba(248,245,240,0.85); line-height:1.5; margin-bottom:1.25rem;">"A great fragrance is the invisible part of a person's personality."</p>
+      <p style="font-size:0.78rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(176,154,114,0.7);">— Christian, Founder</p>
+    </div>
+    <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(176,154,114,0.2); padding:2rem 2.5rem;">
+      <p style="font-size:0.78rem; letter-spacing:0.2em; text-transform:uppercase; color:#B09A72; margin-bottom:1rem;">What sets us apart</p>
+      <ul style="list-style:none; color:rgba(248,245,240,0.6); font-size:0.9rem; line-height:2.2;">
+        <li>✦ &nbsp; Alcohol-free, skin-safe formulations</li>
+        <li>✦ &nbsp; Handcrafted in small batches</li>
+        <li>✦ &nbsp; No synthetic shortcuts</li>
+        <li>✦ &nbsp; Long-lasting sillage &amp; projection</li>
+        <li>✦ &nbsp; Custom bespoke scent service available</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="fade-in" style="text-align:center; max-width:620px; margin:0 auto;">
+    <p class="section-label" style="justify-content:center;">Our Craft</p>
+    <h2>The art of<br><em>perfumery</em></h2>
+    <p style="color:var(--muted); font-size:0.97rem;">From raw material to finished bottle, every step is deliberate.</p>
+  </div>
+
+  <div class="process-grid">
+    <div class="process-step fade-in">
+      <div class="step-number">01</div>
+      <h3 class="step-title">Sourcing</h3>
+      <p class="step-desc">We travel the world to find the finest raw ingredients — no compromises on quality or provenance.</p>
+    </div>
+    <div class="process-step fade-in">
+      <div class="step-number">02</div>
+      <h3 class="step-title">Composition</h3>
+      <p class="step-desc">Our perfumers layer top, heart, and base notes with precision, balancing each accord by hand.</p>
+    </div>
+    <div class="process-step fade-in">
+      <div class="step-number">03</div>
+      <h3 class="step-title">Maceration</h3>
+      <p class="step-desc">Blends rest for weeks, allowing ingredients to fully harmonize into a seamless, complex fragrance.</p>
+    </div>
+    <div class="process-step fade-in">
+      <div class="step-number">04</div>
+      <h3 class="step-title">Bottling</h3>
+      <p class="step-desc">Each bottle is filled, sealed, and finished by hand — then inspected before it reaches you.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <p class="section-label" style="justify-content:center;">Get in Touch</p>
+  <h2>Ready to find your<br><em>signature</em> scent?</h2>
+  <p>Enquire about our collections, bespoke services, or wholesale opportunities. We'd love to hear from you.</p>
+  <form class="contact-form" onsubmit="handleSubmit(event)">
+    <input type="text" placeholder="Your name" required>
+    <input type="email" placeholder="Your email address" required>
+    <textarea rows="4" placeholder="Your message or enquiry..."></textarea>
+    <button type="submit">Send Enquiry</button>
+  </form>
+</section>
+
+<!-- DELIVERY -->
+<section class="delivery" id="delivery">
+  <div style="text-align:center; max-width:600px; margin:0 auto;">
+    <p class="section-label" style="justify-content:center;">Delivery</p>
+    <h2>We bring the <em>scent</em> to you.</h2>
+    <p style="color:var(--muted); font-size:0.97rem; margin-top:0.75rem;">Fast, reliable delivery across Nairobi. Order via WhatsApp and we'll confirm your delivery details.</p>
+  </div>
+  <div class="delivery-grid">
+    <div class="delivery-card">
+      <div class="delivery-icon">🛵</div>
+      <h3 class="delivery-title">Same Day Delivery</h3>
+      <p class="delivery-desc">Order before 12pm and receive your fragrance the same day within Nairobi CBD and surrounding areas.</p>
+      <span class="delivery-fee">KES 200 – 300</span>
+    </div>
+    <div class="delivery-card">
+      <div class="delivery-icon">📦</div>
+      <h3 class="delivery-title">Next Day Delivery</h3>
+      <p class="delivery-desc">Order any time and receive your package the following day. Available across all Nairobi estates.</p>
+      <span class="delivery-fee">KES 150 – 250</span>
+    </div>
+    <div class="delivery-card">
+      <div class="delivery-icon">🏪</div>
+      <h3 class="delivery-title">Pick Up</h3>
+      <p class="delivery-desc">Prefer to pick up? Contact us on WhatsApp and we'll arrange a convenient pick-up point for you.</p>
+      <span class="delivery-fee">FREE</span>
+    </div>
+  </div>
+  <div style="text-align:center; margin-top:3rem;">
+    <a href="https://wa.me/254735042143?text=Hi%20Christian's%20Designer%20Scents!%20I'd%20like%20to%20enquire%20about%20delivery." class="btn-primary" style="display:inline-block;">📲 &nbsp; Chat With Us on WhatsApp</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Christian's <span>Designer</span> Scents</div>
+  <div>© 2025 Christian's Designer Scents. All rights reserved.</div>
+  <div style="display:flex; gap:1.5rem;">
+    <a href="#">Instagram</a>
+    <a href="#">WhatsApp</a>
+    <a href="#">TikTok</a>
+  </div>
+</footer>
+
+<script>
+  // Auto-inject WhatsApp order buttons on every scent card
+  document.querySelectorAll('.scent-card').forEach(card => {
+    const name = card.querySelector('.card-name')?.innerText || 'this fragrance';
+    const price = card.querySelector('.card-price')?.innerText || '';
+    const msg = encodeURIComponent("Hi Christian's Designer Scents! I'd like to order " + name + " (" + price + "). Please confirm availability and delivery details.");
+    const btn = document.createElement('a');
+    btn.href = 'https://wa.me/254735042143?text=' + msg;
+    btn.target = '_blank';
+    btn.className = 'whatsapp-btn';
+    btn.innerHTML = '📲 &nbsp; Order via WhatsApp';
+    card.querySelector('.card-body').appendChild(btn);
+  });
+
+  // Filter scents by gender
+  function filterScents(gender) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+    document.querySelectorAll('.scent-card').forEach(card => {
+      const match = gender === 'all' || card.dataset.gender === gender;
+      card.style.display = match ? '' : 'none';
+    });
+  }
+
+  // Contact form
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    btn.textContent = "Sent! We'll be in touch.";
+    btn.style.background = '#B09A72';
+    btn.disabled = true;
+  }
+</script>
+</body>
+</html>
