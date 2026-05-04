@@ -152,8 +152,9 @@
 </footer>
 
 <script>
-    // Silhouettes generate the premium placeholder feel
-    const silhouette = "https://cdn-icons-png.flaticon.com/512/3062/3062295.png";
+    // Premium silhouettes: Masculine square for men, Elegant curved for women
+    const menBottle = "https://cdn-icons-png.flaticon.com/512/3062/3062295.png"; 
+    const womenBottle = "https://cdn-icons-png.flaticon.com/512/3144/3144467.png";
 
     const perfumes = [
         // MEN'S (20)
@@ -206,10 +207,15 @@
         grid.innerHTML = '';
         perfumes.forEach(p => {
             if (filter === 'all' || p.cat === filter) {
+                // CHOOSE BOTTLE BASED ON GENDER
+                const currentImg = p.cat === 'men' ? menBottle : womenBottle;
+                
                 grid.innerHTML += `
                     <div class="card reveal active">
                         <span class="tag">${p.cat === 'men' ? 'Eau de Parfum' : 'Parfum de Luxe'}</span>
-                        <div class="img-container"><img src="${silhouette}" alt="${p.name}"></div>
+                        <div class="img-container">
+                            <img src="${currentImg}" alt="${p.name}">
+                        </div>
                         <h3 class="name">${p.name}</h3>
                         <span class="price">KES ${p.price}</span>
                         <a href="https://wa.me/254YOURNUMBER?text=Christian, I want to secure the ${p.name}" class="buy-btn">Inquire Privately</a>
