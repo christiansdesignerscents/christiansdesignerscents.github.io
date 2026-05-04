@@ -5,119 +5,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Christian's Designer Scents | Luxury Boutique</title>
     
-    <!-- Tab Icon (Favicon) -->
     <link rel="icon" type="image/png" href="images/logo.png">
-
-    <!-- Premium Typography -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600;1,700&family=Jost:wght@300;500;700&display=swap" rel="stylesheet">
 
     <style>
-    :root {
-        /* Changed Gold to Deep Crimson & Onyx */
-        --accent-red: #8b0000;
-        --bright-red: #ff3131;
-        --deep-black: #050505;
-        --card-bg: linear-gradient(145deg, #0f0f0f 0%, #050505 100%);
-        --red-glow: rgba(255, 0, 0, 0.15);
-    }
+        :root {
+            /* Your New Signature Palette */
+            --dark-choco: #1e130c; /* Deep Chocolate Foundation */
+            --raspberry: #d21f5b;  /* Vibrant Raspberry Pink */
+            --cream: #fff5e1;       /* Smooth Cream for text */
+            --gold: #c5a059;        /* Premium Gold Finish */
+            --onyx: #050505;        /* Deep Black */
+            
+            --gold-gradient: linear-gradient(135deg, #b38728 0%, #fbf5b7 50%, #aa771c 100%);
+        }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; cursor: crosshair; }
-    
-    body { 
-        background: var(--deep-black); 
-        color: #fff; 
-        font-family: 'Jost', sans-serif; 
-        background-image: radial-gradient(circle at center, #120000 0%, #050505 100%);
-    }
+        * { box-sizing: border-box; margin: 0; padding: 0; cursor: crosshair; }
+        
+        body { 
+            background: var(--onyx); 
+            color: var(--cream); 
+            font-family: 'Jost', sans-serif; 
+            background-image: radial-gradient(circle at center, var(--dark-choco) 0%, var(--onyx) 100%);
+        }
 
-    /* --- REDUCED GLOW ANIMATIONS --- */
-    @keyframes shine { from { left: -100%; } to { left: 100%; } }
-    
-    /* Subtler, darker pulse */
-    @keyframes pulse-red { 
-        0% { box-shadow: 0 0 5px rgba(139, 0, 0, 0.1); } 
-        50% { box-shadow: 0 0 15px rgba(139, 0, 0, 0.3); } 
-        100% { box-shadow: 0 0 5px rgba(139, 0, 0, 0.1); } 
-    }
+        /* --- REFINED SFX --- */
+        .reveal { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
-    .reveal { opacity: 0; transform: translateY(30px); transition: 1s ease-out; }
-    .reveal.active { opacity: 1; transform: translateY(0); }
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            background: rgba(30, 19, 12, 0.95); /* Chocolate with transparency */
+            backdrop-filter: blur(15px);
+            padding: 1.5rem 5%;
+            display: flex; justify-content: center;
+            border-bottom: 2px solid var(--gold);
+        }
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem; font-weight: 700; letter-spacing: 5px;
+            text-transform: uppercase; text-decoration: none;
+            background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
 
-    /* --- NAVIGATION --- */
-    nav {
-        position: fixed; top: 0; width: 100%; z-index: 1000;
-        background: rgba(5, 5, 5, 0.98);
-        padding: 1.5rem 5%;
-        display: flex; justify-content: center;
-        border-bottom: 1px solid var(--accent-red);
-    }
-    .logo {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 2rem; font-weight: 700; letter-spacing: 5px;
-        text-transform: uppercase; text-decoration: none;
-        color: var(--bright-red);
-        text-shadow: 0 0 10px rgba(255, 49, 49, 0.4);
-    }
+        /* --- HERO --- */
+        .hero {
+            height: 60vh;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            text-align: center; border-bottom: 1px solid var(--gold);
+            background: linear-gradient(to bottom, rgba(30, 19, 12, 0.7), var(--onyx)), 
+                        url('https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=2000') center/cover;
+        }
+        .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 4.5rem; font-style: italic; color: var(--cream); }
+        .hero p { text-transform: uppercase; letter-spacing: 8px; color: var(--raspberry); font-weight: 700; }
 
-    /* --- HERO --- */
-    .hero {
-        height: 60vh;
-        display: flex; flex-direction: column; align-items: center; justify-content: center;
-        text-align: center; border-bottom: 1px solid var(--accent-red);
-        background: linear-gradient(to bottom, rgba(0,0,0,0.8), var(--deep-black)), 
-                    url('https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=2000') center/cover;
-    }
-    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 4rem; color: #eee; }
-    .hero p { text-transform: uppercase; letter-spacing: 8px; color: var(--accent-red); }
+        /* --- FILTERS --- */
+        .filter-section { padding: 120px 5% 30px; text-align: center; }
+        .btn-luxury {
+            background: transparent; border: 1px solid var(--dark-choco); color: var(--cream);
+            padding: 12px 35px; margin: 8px; cursor: pointer;
+            text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem;
+            transition: 0.4s;
+        }
+        .btn-luxury:hover, .btn-luxury.active { border-color: var(--raspberry); background: var(--raspberry); color: #fff; }
 
-    /* --- FILTERS --- */
-    .filter-section { padding: 120px 5% 30px; text-align: center; }
-    .btn-luxury {
-        background: transparent; border: 1px solid #333; color: #888;
-        padding: 12px 35px; margin: 8px; cursor: pointer;
-        text-transform: uppercase; letter-spacing: 2px; font-size: 0.75rem;
-        transition: 0.4s;
-    }
-    .btn-luxury:hover, .btn-luxury.active { border-color: var(--bright-red); color: #fff; box-shadow: 0 0 10px var(--red-glow); }
+        /* --- PRODUCT GRID --- */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; padding: 20px 8% 100px; }
+        
+        .card {
+            background: linear-gradient(145deg, #1a0f0a 0%, #050505 100%);
+            border: 1px solid var(--dark-choco);
+            padding: 30px; text-align: center;
+            transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            position: relative; overflow: hidden;
+        }
+        .card:hover { border-color: var(--gold); transform: translateY(-10px); box-shadow: 0 10px 30px rgba(197, 160, 89, 0.1); }
+        
+        .img-container { height: 250px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+        .img-container img { 
+            max-height: 80%; 
+            filter: invert(1) brightness(0.9) sepia(1) saturate(2) hue-rotate(310deg); /* Raspberry Tinted Silhouette */
+            transition: 0.5s; opacity: 0.6;
+        }
+        .card:hover img { transform: scale(1.08); opacity: 1; filter: invert(1) brightness(1.2); }
 
-    /* --- PRODUCT GRID --- */
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; padding: 20px 8% 100px; }
-    
-    .card {
-        background: var(--card-bg);
-        border: 1px solid #1a1a1a;
-        padding: 30px; text-align: center;
-        transition: 0.5s;
-        position: relative; overflow: hidden;
-        animation: pulse-red 8s infinite;
-    }
-    .card:hover { border-color: var(--accent-red); transform: translateY(-10px); }
-    
-    /* SHARP REDUCED GLOW */
-    .img-container { height: 250px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
-    .img-container img { 
-        max-height: 85%; 
-        /* Dimmed the silhouette: Invert stays, but opacity and brightness are lowered */
-        filter: invert(1) brightness(0.7) drop-shadow(0 0 5px rgba(255, 0, 0, 0.2)); 
-        transition: 0.5s; 
-        opacity: 0.5;
-    }
-    .card:hover img { transform: scale(1.05); opacity: 0.9; filter: invert(1) brightness(1.2) drop-shadow(0 0 10px var(--bright-red)); }
+        .tag { color: var(--gold); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 10px; display: block; font-weight: 700; }
+        .name { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 12px; color: var(--cream); }
+        .price { font-size: 1.4rem; font-weight: 700; color: var(--raspberry); display: block; margin-bottom: 25px; }
 
-    .tag { color: var(--accent-red); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 10px; display: block; }
-    .name { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; margin-bottom: 12px; color: #ddd; }
-    .price { font-size: 1.3rem; font-weight: 700; color: #fff; display: block; margin-bottom: 20px; }
+        .buy-btn {
+            display: block; width: 100%; padding: 16px; 
+            border: 1px solid var(--gold);
+            background: transparent; color: var(--gold);
+            font-weight: 800; text-transform: uppercase; text-decoration: none;
+            letter-spacing: 2px; transition: 0.4s;
+        }
+        .buy-btn:hover { background: var(--gold-gradient); color: var(--onyx); border-color: transparent; }
 
-    .buy-btn {
-        display: block; width: 100%; padding: 15px; border: 1px solid var(--accent-red);
-        background: transparent; color: #fff;
-        font-weight: 700; text-transform: uppercase; text-decoration: none;
-        letter-spacing: 1px; transition: 0.3s;
-    }
-    .buy-btn:hover { background: var(--accent-red); color: #fff; }
-
-    footer { border-top: 1px solid #1a1a1a; padding: 60px 5%; text-align: center; color: #444; }
-</style>
+        footer { border-top: 1px solid var(--dark-choco); padding: 60px 5%; text-align: center; background: #0a0604; }
+    </style>
 </head>
 <body>
 
@@ -126,7 +113,7 @@
 <section class="hero">
     <div class="reveal">
         <p>The Masterpiece Collection</p>
-        <h1>Smell Like Success.</h1>
+        <h1>Sensory Perfection.</h1>
     </div>
 </section>
 
@@ -137,63 +124,62 @@
 </div>
 
 <div class="grid" id="mainGrid">
-    <!-- JAVASCRIPT INJECTS 40 PERFUMES HERE -->
+    <!-- JS Injected 40 Perfumes Here -->
 </div>
 
 <footer>
-    <div class="footer-logo">C.D.S</div>
-    <p style="letter-spacing: 5px; color: #555; font-size: 0.8rem;">ESTABLISHED 2026 | NAIROBI, KENYA</p>
+    <p style="color: var(--gold); letter-spacing: 4px; font-size: 0.9rem;">CHRISTIAN'S DESIGNER SCENTS</p>
+    <p style="color: #444; margin-top: 10px; font-size: 0.7rem;">EST. 2026 | NAIROBI</p>
 </footer>
 
 <script>
-    // Premium silhouettes: Masculine square for men, Elegant curved for women
     const menBottle = "https://cdn-icons-png.flaticon.com/512/3144/3144467.png"; 
     const womenBottle = "https://cdn-icons-png.flaticon.com/512/3062/3062295.png";
 
     const perfumes = [
-        // MEN'S (20)
-        { name: "Dior Sauvage", cat: "men", price: "5,500" },
-        { name: "Bleu de Chanel", cat: "men", price: "5,800" },
-        { name: "Creed Aventus", cat: "men", price: "6,500" },
+        // KINGS COLLECTION (20) - Prices adjusted to 2k - 5.6k range
+        { name: "Dior Sauvage", cat: "men", price: "5,400" },
+        { name: "Bleu de Chanel", cat: "men", price: "5,600" },
+        { name: "Creed Aventus", cat: "men", price: "5,600" },
         { name: "YSL Y", cat: "men", price: "5,200" },
         { name: "Versace Eros", cat: "men", price: "4,500" },
         { name: "Armani Acqua di Gio", cat: "men", price: "4,800" },
         { name: "JPG Le Male Elixir", cat: "men", price: "5,500" },
-        { name: "Spicebomb Extreme", cat: "men", price: "5,400" },
-        { name: "Tom Ford Oud Wood", cat: "men", price: "7,500" },
-        { name: "Terre d’Hermès", cat: "men", price: "5,200" },
-        { name: "1 Million Elixir", cat: "men", price: "4,900" },
-        { name: "Prada Carbon", cat: "men", price: "5,100" },
-        { name: "Montblanc Explorer", cat: "men", price: "4,200" },
-        { name: "Bvlgari Man", cat: "men", price: "4,800" },
-        { name: "Boss Bottled", cat: "men", price: "4,500" },
-        { name: "Lattafa Asad", cat: "men", price: "3,800" },
-        { name: "Armaf CDNIM", cat: "men", price: "4,500" },
-        { name: "Afnan 9PM", cat: "men", price: "3,600" },
-        { name: "Rasasi Hawas", cat: "men", price: "4,200" },
-        { name: "Al Haramain Amber Oud", cat: "men", price: "5,500" },
+        { name: "Spicebomb Extreme", cat: "men", price: "5,100" },
+        { name: "Tom Ford Oud Wood", cat: "men", price: "5,600" },
+        { name: "Terre d’Hermès", cat: "men", price: "4,900" },
+        { name: "1 Million Elixir", cat: "men", price: "4,800" },
+        { name: "Prada Carbon", cat: "men", price: "4,600" },
+        { name: "Montblanc Explorer", cat: "men", price: "3,800" },
+        { name: "Bvlgari Man", cat: "men", price: "4,200" },
+        { name: "Boss Bottled", cat: "men", price: "3,500" },
+        { name: "Lattafa Asad", cat: "men", price: "2,800" },
+        { name: "Armaf CDNIM", cat: "men", price: "3,200" },
+        { name: "Afnan 9PM", cat: "men", price: "2,600" },
+        { name: "Rasasi Hawas", cat: "men", price: "3,400" },
+        { name: "Al Haramain Amber Oud", cat: "men", price: "4,500" },
 
-        // WOMEN'S (20)
-        { name: "La Vie Est Belle", cat: "women", price: "5,200" },
-        { name: "YSL Libre", cat: "women", price: "5,500" },
-        { name: "Coco Mademoiselle", cat: "women", price: "6,200" },
-        { name: "CH Good Girl", cat: "women", price: "5,800" },
-        { name: "Dior J’adore", cat: "women", price: "5,600" },
+        // QUEENS COLLECTION (20) - Prices adjusted to 2k - 5.6k range
+        { name: "La Vie Est Belle", cat: "women", price: "5,100" },
+        { name: "YSL Libre", cat: "women", price: "5,400" },
+        { name: "Coco Mademoiselle", cat: "women", price: "5,600" },
+        { name: "CH Good Girl", cat: "women", price: "5,300" },
+        { name: "Dior J’adore", cat: "women", price: "5,500" },
         { name: "YSL Black Opium", cat: "women", price: "4,900" },
-        { name: "Armani Si", cat: "women", price: "5,100" },
-        { name: "Valentino Born in Roma", cat: "women", price: "5,600" },
-        { name: "Gucci Bloom", cat: "women", price: "5,100" },
-        { name: "Versace Crystal Noir", cat: "women", price: "4,800" },
-        { name: "Mugler Alien", cat: "women", price: "5,500" },
-        { name: "Burberry Goddess", cat: "women", price: "5,800" },
-        { name: "Prada Paradoxe", cat: "women", price: "5,600" },
-        { name: "Kayali Vanilla 28", cat: "women", price: "5,100" },
-        { name: "Lattafa Yara (Pink)", cat: "women", price: "3,500" },
-        { name: "Swiss Arabian Shaghaf Oud", cat: "women", price: "3,800" },
-        { name: "Armaf CDN Woman", cat: "women", price: "3,800" },
-        { name: "Ariana Grande Cloud", cat: "women", price: "4,200" },
-        { name: "Zara Red Temptation", cat: "women", price: "3,200" },
-        { name: "Lattafa Khamrah", cat: "women", price: "4,500" }
+        { name: "Armani Si", cat: "women", price: "4,800" },
+        { name: "Valentino Born in Roma", cat: "women", price: "5,200" },
+        { name: "Gucci Bloom", cat: "women", price: "4,700" },
+        { name: "Versace Crystal Noir", cat: "women", price: "4,200" },
+        { name: "Mugler Alien", cat: "women", price: "5,100" },
+        { name: "Burberry Goddess", cat: "women", price: "5,400" },
+        { name: "Prada Paradoxe", cat: "women", price: "5,500" },
+        { name: "Kayali Vanilla 28", cat: "women", price: "4,600" },
+        { name: "Lattafa Yara (Pink)", cat: "women", price: "2,400" },
+        { name: "Swiss Arabian Shaghaf Oud", cat: "women", price: "2,900" },
+        { name: "Armaf CDN Woman", cat: "women", price: "2,800" },
+        { name: "Ariana Grande Cloud", cat: "women", price: "3,500" },
+        { name: "Zara Red Temptation", cat: "women", price: "2,200" },
+        { name: "Lattafa Khamrah", cat: "women", price: "3,800" }
     ];
 
     function renderPerfumes(filter = 'all') {
@@ -201,18 +187,14 @@
         grid.innerHTML = '';
         perfumes.forEach(p => {
             if (filter === 'all' || p.cat === filter) {
-                // CHOOSE BOTTLE BASED ON GENDER
                 const currentImg = p.cat === 'men' ? menBottle : womenBottle;
-                
                 grid.innerHTML += `
                     <div class="card reveal active">
-                        <span class="tag">${p.cat === 'men' ? 'Eau de Parfum' : 'Parfum de Luxe'}</span>
-                        <div class="img-container">
-                            <img src="${currentImg}" alt="${p.name}">
-                        </div>
+                        <span class="tag">Designer Selection</span>
+                        <div class="img-container"><img src="${currentImg}" alt="${p.name}"></div>
                         <h3 class="name">${p.name}</h3>
                         <span class="price">KES ${p.price}</span>
-                        <a href="https://wa.me/254YOURNUMBER?text=Christian, I want to secure the ${p.name}" class="buy-btn">Inquire Privately</a>
+                        <a href="https://wa.me/254YOURNUMBER?text=Christian, I'd like to order ${p.name}" class="buy-btn">Inquire Now</a>
                     </div>`;
             }
         });
@@ -224,21 +206,13 @@
         renderPerfumes(cat);
     }
 
-    // Initial Load
     renderPerfumes();
-
-    // Intersection Observer for Smooth Reveal
+    
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add('active');
-        });
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
     }, { threshold: 0.1 });
-
-    function initObserver() {
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    }
-
-    window.onload = initObserver;
+    
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
