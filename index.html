@@ -12,118 +12,112 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600;1,700&family=Jost:wght@300;500;700&display=swap" rel="stylesheet">
 
     <style>
-        :root {
-            --gold: #C5A059;
-            --gold-bright: #fbf5b7;
-            --deep-black: #050505;
-            --glass: rgba(255, 255, 255, 0.03);
-            --gold-gradient: linear-gradient(135deg, #b38728 0%, #fbf5b7 50%, #aa771c 100%);
-            --card-bg: linear-gradient(145deg, #111 0%, #080808 100%);
-        }
+    :root {
+        /* Changed Gold to Deep Crimson & Onyx */
+        --accent-red: #8b0000;
+        --bright-red: #ff3131;
+        --deep-black: #050505;
+        --card-bg: linear-gradient(145deg, #0f0f0f 0%, #050505 100%);
+        --red-glow: rgba(255, 0, 0, 0.15);
+    }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; cursor: crosshair; }
-        
-        body { 
-            background: var(--deep-black); 
-            color: #fff; 
-            font-family: 'Jost', sans-serif; 
-            overflow-x: hidden;
-            background-image: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%);
-        }
+    * { box-sizing: border-box; margin: 0; padding: 0; cursor: crosshair; }
+    
+    body { 
+        background: var(--deep-black); 
+        color: #fff; 
+        font-family: 'Jost', sans-serif; 
+        background-image: radial-gradient(circle at center, #120000 0%, #050505 100%);
+    }
 
-        /* --- PREMIUM ANIMATIONS --- */
-        @keyframes shine { from { left: -100%; } to { left: 100%; } }
-        @keyframes pulse-gold { 0% { box-shadow: 0 0 5px rgba(197,160,89,0.2); } 50% { box-shadow: 0 0 20px rgba(197,160,89,0.5); } 100% { box-shadow: 0 0 5px rgba(197,160,89,0.2); } }
+    /* --- REDUCED GLOW ANIMATIONS --- */
+    @keyframes shine { from { left: -100%; } to { left: 100%; } }
+    
+    /* Subtler, darker pulse */
+    @keyframes pulse-red { 
+        0% { box-shadow: 0 0 5px rgba(139, 0, 0, 0.1); } 
+        50% { box-shadow: 0 0 15px rgba(139, 0, 0, 0.3); } 
+        100% { box-shadow: 0 0 5px rgba(139, 0, 0, 0.1); } 
+    }
 
-        .reveal { opacity: 0; transform: translateY(40px); transition: 1.2s cubic-bezier(0.17, 0.67, 0.83, 0.67); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+    .reveal { opacity: 0; transform: translateY(30px); transition: 1s ease-out; }
+    .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* --- NAVIGATION --- */
-        nav {
-            position: fixed; top: 0; width: 100%; z-index: 1000;
-            background: rgba(5, 5, 5, 0.95);
-            backdrop-filter: blur(20px);
-            padding: 1.8rem 5%;
-            display: flex; justify-content: center;
-            border-bottom: 1px solid rgba(197, 160, 89, 0.4);
-        }
-        .logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.2rem; font-weight: 700; letter-spacing: 6px;
-            text-transform: uppercase; text-decoration: none;
-            background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            text-shadow: 0 10px 20px rgba(197, 160, 89, 0.2);
-        }
+    /* --- NAVIGATION --- */
+    nav {
+        position: fixed; top: 0; width: 100%; z-index: 1000;
+        background: rgba(5, 5, 5, 0.98);
+        padding: 1.5rem 5%;
+        display: flex; justify-content: center;
+        border-bottom: 1px solid var(--accent-red);
+    }
+    .logo {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 2rem; font-weight: 700; letter-spacing: 5px;
+        text-transform: uppercase; text-decoration: none;
+        color: var(--bright-red);
+        text-shadow: 0 0 10px rgba(255, 49, 49, 0.4);
+    }
 
-        /* --- HERO --- */
-        .hero {
-            height: 75vh;
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            text-align: center; border-bottom: 2px solid var(--gold);
-            background: linear-gradient(to bottom, rgba(0,0,0,0.5), var(--deep-black)), 
-                        url('https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=2000') center/cover;
-        }
-        .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 5rem; font-style: italic; margin-bottom: 15px; letter-spacing: -2px; }
-        .hero p { text-transform: uppercase; letter-spacing: 10px; font-weight: 300; font-size: 0.9rem; color: var(--gold); }
+    /* --- HERO --- */
+    .hero {
+        height: 60vh;
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        text-align: center; border-bottom: 1px solid var(--accent-red);
+        background: linear-gradient(to bottom, rgba(0,0,0,0.8), var(--deep-black)), 
+                    url('https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=2000') center/cover;
+    }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 4rem; color: #eee; }
+    .hero p { text-transform: uppercase; letter-spacing: 8px; color: var(--accent-red); }
 
-        /* --- FILTERS --- */
-        .filter-section { padding: 130px 5% 40px; text-align: center; }
-        .btn-luxury {
-            background: transparent; border: 1px solid var(--gold); color: #fff;
-            padding: 14px 40px; margin: 10px; cursor: pointer;
-            text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; font-weight: 700;
-            transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-        }
-        .btn-luxury:hover, .btn-luxury.active { background: var(--gold-gradient); color: #000; border-color: transparent; transform: scale(1.1); }
+    /* --- FILTERS --- */
+    .filter-section { padding: 120px 5% 30px; text-align: center; }
+    .btn-luxury {
+        background: transparent; border: 1px solid #333; color: #888;
+        padding: 12px 35px; margin: 8px; cursor: pointer;
+        text-transform: uppercase; letter-spacing: 2px; font-size: 0.75rem;
+        transition: 0.4s;
+    }
+    .btn-luxury:hover, .btn-luxury.active { border-color: var(--bright-red); color: #fff; box-shadow: 0 0 10px var(--red-glow); }
 
-        /* --- PRODUCT GRID --- */
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 40px; padding: 20px 8% 100px; }
-        
-        .card {
-            background: var(--card-bg);
-            border: 1px solid rgba(197, 160, 89, 0.2);
-            padding: 35px; text-align: center;
-            transition: 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-            position: relative; overflow: hidden;
-            animation: pulse-gold 6s infinite;
-        }
-        .card:hover { border-color: var(--gold-bright); transform: translateY(-15px) scale(1.02); z-index: 10; }
-        
-        /* The Shine Effect */
-        .card::before {
-            content: ''; position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255,255,255,0.08), transparent);
-            transform: skewX(-25deg); transition: 0.8s;
-        }
-        .card:hover::before { animation: shine 1.2s forwards; }
+    /* --- PRODUCT GRID --- */
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; padding: 20px 8% 100px; }
+    
+    .card {
+        background: var(--card-bg);
+        border: 1px solid #1a1a1a;
+        padding: 30px; text-align: center;
+        transition: 0.5s;
+        position: relative; overflow: hidden;
+        animation: pulse-red 8s infinite;
+    }
+    .card:hover { border-color: var(--accent-red); transform: translateY(-10px); }
+    
+    /* SHARP REDUCED GLOW */
+    .img-container { height: 250px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+    .img-container img { 
+        max-height: 85%; 
+        /* Dimmed the silhouette: Invert stays, but opacity and brightness are lowered */
+        filter: invert(1) brightness(0.7) drop-shadow(0 0 5px rgba(255, 0, 0, 0.2)); 
+        transition: 0.5s; 
+        opacity: 0.5;
+    }
+    .card:hover img { transform: scale(1.05); opacity: 0.9; filter: invert(1) brightness(1.2) drop-shadow(0 0 10px var(--bright-red)); }
 
-        .img-container { height: 280px; display: flex; align-items: center; justify-content: center; margin-bottom: 25px; }
-        .img-container img { 
-            max-height: 100%; 
-            filter: invert(1) brightness(1.8) drop-shadow(0 0 15px rgba(197, 160, 89, 0.4)); 
-            transition: 0.6s; 
-            opacity: 0.9;
-        }
-        .card:hover img { transform: scale(1.15) rotate(5deg); opacity: 1; }
+    .tag { color: var(--accent-red); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 10px; display: block; }
+    .name { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; margin-bottom: 12px; color: #ddd; }
+    .price { font-size: 1.3rem; font-weight: 700; color: #fff; display: block; margin-bottom: 20px; }
 
-        .tag { color: var(--gold); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 4px; display: block; margin-bottom: 12px; font-weight: 700; }
-        .name { font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; font-weight: 600; margin-bottom: 15px; color: #fff; line-height: 1.2; min-height: 70px; }
-        .price { font-size: 1.5rem; font-weight: 700; color: var(--gold-bright); display: block; margin-bottom: 25px; }
+    .buy-btn {
+        display: block; width: 100%; padding: 15px; border: 1px solid var(--accent-red);
+        background: transparent; color: #fff;
+        font-weight: 700; text-transform: uppercase; text-decoration: none;
+        letter-spacing: 1px; transition: 0.3s;
+    }
+    .buy-btn:hover { background: var(--accent-red); color: #fff; }
 
-        .buy-btn {
-            display: block; width: 100%; padding: 18px; border: none;
-            background: var(--gold-gradient); color: #000;
-            font-weight: 800; text-transform: uppercase; text-decoration: none;
-            letter-spacing: 2px; transition: 0.4s;
-            font-size: 0.85rem;
-        }
-        .buy-btn:hover { letter-spacing: 5px; filter: brightness(1.2); }
-
-        footer { border-top: 1px solid var(--gold); padding: 80px 5%; text-align: center; background: #000; }
-        .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--gold); margin-bottom: 20px; }
-
-        @media (max-width: 768px) { .hero h1 { font-size: 3rem; } .grid { grid-template-columns: 1fr; } }
-    </style>
+    footer { border-top: 1px solid #1a1a1a; padding: 60px 5%; text-align: center; color: #444; }
+</style>
 </head>
 <body>
 
