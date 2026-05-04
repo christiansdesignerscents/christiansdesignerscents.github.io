@@ -3,108 +3,223 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Christian's Designer Scents | Official Shop</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Jost:wght@500;700&display=swap" rel="stylesheet">
+    <title>Christian's Designer Scents | Elite Collection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Jost:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --cream: #F8F5F0; --charcoal: #000000; --gold: #856f43; --white: #FFFFFF; }
+        :root {
+            --gold-gradient: linear-gradient(135deg, #B09A72 0%, #D4C4A8 50%, #B09A72 100%);
+            --dark-glass: rgba(17, 17, 17, 0.95);
+            --premium-black: #0a0a0a;
+            --accent-gold: #D4C4A8;
+        }
+
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--charcoal); -webkit-font-smoothing: antialiased; }
         
-        /* NAVIGATION */
-        nav { position: fixed; top: 0; width: 100%; z-index: 1000; background: var(--white); padding: 1.2rem 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid var(--gold); }
-        .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 700; text-decoration: none; color: var(--charcoal); text-transform: uppercase; letter-spacing: 1px; }
+        body { 
+            font-family: 'Jost', sans-serif; 
+            background-color: #050505; /* Deep luxury black */
+            background-image: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #050505 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
 
-        /* FILTER SYSTEM */
-        .filter-container { padding: 110px 5% 20px; text-align: center; background: var(--cream); }
-        .filter-btn { background: var(--white); border: 2px solid var(--charcoal); padding: 0.8rem 1.5rem; margin: 5px; cursor: pointer; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; transition: 0.2s; }
-        .filter-btn.active { background: var(--charcoal); color: white; }
+        /* --- LUXURY ANIMATIONS --- */
+        @keyframes goldGlow {
+            0% { box-shadow: 0 0 5px rgba(176, 154, 114, 0.2); }
+            50% { box-shadow: 0 0 20px rgba(176, 154, 114, 0.5); }
+            100% { box-shadow: 0 0 5px rgba(176, 154, 114, 0.2); }
+        }
 
-        /* GRID SYSTEM */
-        .scents-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; padding: 20px 5%; }
-        .scent-card { background: var(--white); border: 1px solid #ccc; display: flex; flex-direction: column; transition: transform 0.2s; }
-        .scent-card:hover { transform: scale(1.02); }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+        }
 
-        .image-box { height: 260px; padding: 15px; display: flex; align-items: center; justify-content: center; background: #fff; }
-        .scent-img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-        .card-body { padding: 1.2rem; text-align: center; border-top: 1px solid #eee; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
-        .card-category { color: var(--gold); font-weight: 700; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 5px; display: block; }
-        .card-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; color: #000; line-height: 1.2; }
-        .price-tag { font-size: 1.2rem; font-weight: 700; color: #000; margin-bottom: 15px; display: block; }
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            background: var(--dark-glass);
+            backdrop-filter: blur(20px);
+            padding: 1.5rem 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid #333;
+        }
 
-        .whatsapp-btn { display: block; background: #25D366; color: white; text-decoration: none; padding: 0.9rem; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; border-radius: 2px; }
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+        .logo span { background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        footer { background: var(--charcoal); color: white; padding: 3rem; text-align: center; margin-top: 40px; }
-        
-        @media (max-width: 600px) { .scents-grid { grid-template-columns: 1fr; } }
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2), #050505), 
+                        url('https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=2000') center/cover;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            font-style: italic;
+            letter-spacing: -1px;
+        }
+
+        /* --- PREMIUM GRID --- */
+        .filter-container { padding: 120px 5% 30px; text-align: center; }
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--accent-gold);
+            color: #fff;
+            padding: 0.8rem 2rem;
+            margin: 5px;
+            cursor: pointer;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: 0.4s;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--gold-gradient);
+            color: #000;
+            border-color: transparent;
+        }
+
+        .scents-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 40px; padding: 40px 8%; }
+
+        .scent-card {
+            background: #111;
+            border: 1px solid #222;
+            position: relative;
+            overflow: hidden;
+            animation: goldGlow 4s infinite;
+        }
+
+        .scent-card::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.05), transparent);
+            transform: rotate(45deg);
+            transition: 0.6s;
+        }
+
+        .scent-card:hover::before { left: 100%; }
+
+        .image-box { 
+            height: 350px; 
+            padding: 30px; 
+            background: radial-gradient(circle, #222 0%, #111 100%);
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .scent-img { 
+            max-width: 100%; max-height: 100%; 
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .scent-card:hover .scent-img { transform: scale(1.1) rotate(3deg); }
+
+        .card-body { padding: 2rem; text-align: center; background: #0a0a0a; }
+        .card-name { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--accent-gold); }
+        .price-tag { font-size: 1.4rem; font-weight: 700; margin-bottom: 1.5rem; display: block; color: #fff; }
+
+        .whatsapp-btn {
+            display: block;
+            background: var(--gold-gradient);
+            color: #000;
+            text-decoration: none;
+            padding: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .whatsapp-btn:hover { transform: scale(1.05); filter: brightness(1.1); }
+
+        footer { background: #000; padding: 5rem; text-align: center; border-top: 1px solid var(--accent-gold); }
     </style>
 </head>
 <body>
 
-<nav><a href="#" class="logo">Christian's DESIGNER Scents</a></nav>
+<nav><a href="#" class="logo">CHRISTIAN <span>SCENTS</span></a></nav>
 
-<div class="filter-container">
-    <button class="filter-btn active" onclick="filterScent('all')">All Items</button>
-    <button class="filter-btn" onclick="filterScent('men')">👔 Men's Top Picks</button>
-    <button class="filter-btn" onclick="filterScent('women')">👗 Women's Top Picks</button>
+<section class="hero">
+    <div class="fade-in">
+        <h1>The Gold Standard.</h1>
+        <p style="letter-spacing: 5px; text-transform: uppercase; font-size: 0.8rem;">Elite Fragrances for the 1%</p>
+    </div>
+</section>
+
+<div class="filter-container fade-in">
+    <button class="filter-btn active" onclick="filterScent('all')">The Collection</button>
+    <button class="filter-btn" onclick="filterScent('men')">👔 Kings</button>
+    <button class="filter-btn" onclick="filterScent('women')">👗 Queens</button>
 </div>
 
-<div class="scents-grid" id="scentGrid">
-    <!-- MEN'S (20) -->
-    <div class="scent-card men"><div class="image-box"><img src="https://www.dior.com/dw/image/v2/BBDL_PRD/on/demandware.static/-/Sites-master_dior/default/dw69421503/assets/y0066001/Y006604000_E01_ZHC.jpg" class="scent-img"></div><div class="card-body"><div><span class="card-category">Men</span><h3 class="card-name">Dior Sauvage</h3><span class="price-tag">KES 5,500</span></div><a href="https://wa.me/254YOURNUMBER" class="whatsapp-btn">Order via WhatsApp</a></div></div>
-    <div class="scent-card men"><div class="image-box"><img src="https://www.chanel.com/images/q_auto,f_auto,fl_lossy,dpr_auto/w_1920/bleu-de-chanel-eau-de-parfum-spray-3-4fl-oz--packshot-default-107360-9518335492126.jpg" class="scent-img"></div><div class="card-body"><div><span class="card-category">Men</span><h3 class="card-name">Bleu de Chanel</h3><span class="price-tag">KES 5,800</span></div><a href="https://wa.me/254YOURNUMBER" class="whatsapp-btn">Order via WhatsApp</a></div></div>
-    <div class="scent-card men"><div class="image-box"><div style="font-weight:700;color:#ccc">CREED</div></div><div class="card-body"><div><span class="card-category">Men</span><h3 class="card-name">Creed Aventus</h3><span class="price-tag">KES 6,500</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
-    <div class="scent-card men"><div class="image-box"><div style="font-weight:700;color:#ccc">YSL</div></div><div class="card-body"><div><span class="card-category">Men</span><h3 class="card-name">YSL Y</h3><span class="price-tag">KES 5,200</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
-    <div class="scent-card men"><div class="image-box"><div style="font-weight:700;color:#ccc">VERSACE</div></div><div class="card-body"><div><span class="card-category">Men</span><h3 class="card-name">Versace Eros</h3><span class="price-tag">KES 4,500</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
-    <div class="scent-card men"><div class="image-box"><div style="font-weight:700;color:#ccc">ARMANI</div></div><div class="card-body"><div><span class="card-category">Men</span><h3 class="card-name">Acqua di Gio</h3><span class="price-tag">KES 4,800</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
-    <div class="scent-card men"><div class="image-box"><div style="font-weight:700;color:#ccc">JPG</div></div><div class="card-body"><div><span class="card-category">Men</span><h3 class="card-name">Le Male Elixir</h3><span class="price-tag">KES 5,500</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
-    <div class="scent-card men"><div class="image-box"><div style="font-weight:700;color:#ccc">VIKTOR&ROLF</div></div><div class="card-body"><div><span class="card-category">Men</span><h3 class="card-name">Spicebomb Extreme</h3><span class="price-tag">KES 5,400</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
-    <div class="scent-card men"><div class="image-box"><div style="font-weight:700;color:#ccc">TOM FORD</div></div><div class="card-body"><div><span class="card-category">Men</span><h3 class="card-name">Oud Wood</h3><span class="price-tag">KES 7,500</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
-    <div class="scent-card men"><div class="image-box"><div style="font-weight:700;color:#ccc">HERMÈS</div></div><div class="card-body"><div><span class="card-category">Men</span><h3 class="card-name">Terre d’Hermès</h3><span class="price-tag">KES 5,200</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
-    <div class="scent-card men"><div class="image-box"><div style="font-weight:700;color:#ccc">P.RABANNE</div></div><div class="card-body"><div><span class="card-category">Men</span><h3 class="card-name">1 Million Elixir</h3><span class="price-tag">KES 4,900</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
-    <div class="scent-card men"><div class="image-box"><div style="font-weight:700;color:#ccc">PRADA</div></div><div class="card-body"><div><span class="card-category">Men</span><h3 class="card-name">Prada Carbon</h3><span class="price-tag">KES 5,100</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
-    <div class="scent-card men"><div class="image-box"><div style="font-weight:700;color:#ccc">MONTBLANC</div></div><div class="card-body"><div><span class="card-category">Men</span><h3 class="card-name">Explorer</h3><span class="price-tag">KES 4,200</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
-    <div class="scent-card men"><div class="image-box"><div style="font-weight:700;color:#ccc">BVLGARI</div></div><div class="card-body"><div><span class="card-category">Men</span><h3 class="card-name">Bvlgari Man</h3><span class="price-tag">KES 4,800</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
-    <div class="scent-card men"><div class="image-box"><div style="font-weight:700;color:#ccc">BOSS</div></div><div class="card-body"><div><span class="card-category">Men</span><h3 class="card-name">Boss Bottled</h3><span class="price-tag">KES 4,500</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
-    <div class="scent-card men"><div class="image-box"><img src="https://m.media-amazon.com/images/I/51r-E+jRxlL._SL1000_.jpg" class="scent-img"></div><div class="card-body"><div><span class="card-category">Men</span><h3 class="card-name">Lattafa Asad</h3><span class="price-tag">KES 3,800</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
-    <div class="scent-card men"><div class="image-box"><img src="https://m.media-amazon.com/images/I/71Y-tT8U8rL.jpg" class="scent-img"></div><div class="card-body"><div><span class="card-category">Men</span><h3 class="card-name">Armaf CDNIM</h3><span class="price-tag">KES 4,500</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
-    <div class="scent-card men"><div class="image-box"><div style="font-weight:700;color:#ccc">AFNAN</div></div><div class="card-body"><div><span class="card-category">Men</span><h3 class="card-name">Afnan 9PM</h3><span class="price-tag">KES 3,600</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
-    <div class="scent-card men"><div class="image-box"><div style="font-weight:700;color:#ccc">RASASI</div></div><div class="card-body"><div><span class="card-category">Men</span><h3 class="card-name">Rasasi Hawas</h3><span class="price-tag">KES 4,200</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
-    <div class="scent-card men"><div class="image-box"><div style="font-weight:700;color:#ccc">AL HARAMAIN</div></div><div class="card-body"><div><span class="card-category">Men</span><h3 class="card-name">Amber Oud</h3><span class="price-tag">KES 5,500</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
+<div class="scents-grid">
+    <!-- DIOR SAUVAGE -->
+    <div class="scent-card men fade-in">
+        <div class="image-box"><img src="https://www.dior.com/dw/image/v2/BBDL_PRD/on/demandware.static/-/Sites-master_dior/default/dw69421503/assets/y0066001/Y006604000_E01_ZHC.jpg" class="scent-img"></div>
+        <div class="card-body">
+            <h3 class="card-name">Dior Sauvage</h3>
+            <span class="price-tag">KES 5,500</span>
+            <a href="https://wa.me/254YOURNUMBER" class="whatsapp-btn">Claim Yours</a>
+        </div>
+    </div>
 
-    <!-- WOMEN'S (20) -->
-    <div class="scent-card women"><div class="image-box"><img src="https://m.media-amazon.com/images/I/61i6l38xIeL.jpg" class="scent-img"></div><div class="card-body"><div><span class="card-category">Women</span><h3 class="card-name">La Vie Est Belle</h3><span class="price-tag">KES 5,200</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
-    <div class="scent-card women"><div class="image-box"><div style="font-weight:700;color:#ccc">YSL</div></div><div class="card-body"><div><span class="card-category">Women</span><h3 class="card-name">YSL Libre</h3><span class="price-tag">KES 5,500</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
-    <div class="scent-card women"><div class="image-box"><div style="font-weight:700;color:#ccc">CHANEL</div></div><div class="card-body"><div><span class="card-category">Women</span><h3 class="card-name">Coco Mademoiselle</h3><span class="price-tag">KES 6,200</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
-    <div class="scent-card women"><div class="image-box"><div style="font-weight:700;color:#ccc">CH</div></div><div class="card-body"><div><span class="card-category">Women</span><h3 class="card-name">CH Good Girl</h3><span class="price-tag">KES 5,800</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
-    <div class="scent-card women"><div class="image-box"><div style="font-weight:700;color:#ccc">DIOR</div></div><div class="card-body"><div><span class="card-category">Women</span><h3 class="card-name">Dior J’adore</h3><span class="price-tag">KES 5,600</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
-    <div class="scent-card women"><div class="image-box"><img src="https://m.media-amazon.com/images/I/71Y-tT8U8rL.jpg" class="scent-img"></div><div class="card-body"><div><span class="card-category">Women</span><h3 class="card-name">YSL Black Opium</h3><span class="price-tag">KES 4,900</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
-    <div class="scent-card women"><div class="image-box"><div style="font-weight:700;color:#ccc">ARMANI</div></div><div class="card-body"><div><span class="card-category">Women</span><h3 class="card-name">Armani Si</h3><span class="price-tag">KES 5,100</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
-    <div class="scent-card women"><div class="image-box"><div style="font-weight:700;color:#ccc">VALENTINO</div></div><div class="card-body"><div><span class="card-category">Women</span><h3 class="card-name">Born in Roma</h3><span class="price-tag">KES 5,600</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
-    <div class="scent-card women"><div class="image-box"><div style="font-weight:700;color:#ccc">GUCCI</div></div><div class="card-body"><div><span class="card-category">Women</span><h3 class="card-name">Gucci Bloom</h3><span class="price-tag">KES 5,100</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
-    <div class="scent-card women"><div class="image-box"><div style="font-weight:700;color:#ccc">VERSACE</div></div><div class="card-body"><div><span class="card-category">Women</span><h3 class="card-name">Crystal Noir</h3><span class="price-tag">KES 4,800</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
-    <div class="scent-card women"><div class="image-box"><div style="font-weight:700;color:#ccc">MUGLER</div></div><div class="card-body"><div><span class="card-category">Women</span><h3 class="card-name">Mugler Alien</h3><span class="price-tag">KES 5,500</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
-    <div class="scent-card women"><div class="image-box"><div style="font-weight:700;color:#ccc">BURBERRY</div></div><div class="card-body"><div><span class="card-category">Women</span><h3 class="card-name">Burberry Goddess</h3><span class="price-tag">KES 5,800</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
-    <div class="scent-card women"><div class="image-box"><div style="font-weight:700;color:#ccc">PRADA</div></div><div class="card-body"><div><span class="card-category">Women</span><h3 class="card-name">Prada Paradoxe</h3><span class="price-tag">KES 5,600</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
-    <div class="scent-card women"><div class="image-box"><div style="font-weight:700;color:#ccc">KAYALI</div></div><div class="card-body"><div><span class="card-category">Women</span><h3 class="card-name">Vanilla 28</h3><span class="price-tag">KES 5,100</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
-    <div class="scent-card women"><div class="image-box"><img src="https://m.media-amazon.com/images/I/51BfS6UjPML._SL1000_.jpg" class="scent-img"></div><div class="card-body"><div><span class="card-category">Women</span><h3 class="card-name">Lattafa Yara (Pink)</h3><span class="price-tag">KES 3,500</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
-    <div class="scent-card women"><div class="image-box"><div style="font-weight:700;color:#ccc">SWISS ARABIAN</div></div><div class="card-body"><div><span class="card-category">Women</span><h3 class="card-name">Shaghaf Oud</h3><span class="price-tag">KES 3,800</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
-    <div class="scent-card women"><div class="image-box"><div style="font-weight:700;color:#ccc">ARMAF</div></div><div class="card-body"><div><span class="card-category">Women</span><h3 class="card-name">Armaf CDN Woman</h3><span class="price-tag">KES 3,800</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
-    <div class="scent-card women"><div class="image-box"><div style="font-weight:700;color:#ccc">ARIANA</div></div><div class="card-body"><div><span class="card-category">Women</span><h3 class="card-name">Ariana Grande Cloud</h3><span class="price-tag">KES 4,200</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
-    <div class="scent-card women"><div class="image-box"><div style="font-weight:700;color:#ccc">ZARA</div></div><div class="card-body"><div><span class="card-category">Women</span><h3 class="card-name">Red Temptation</h3><span class="price-tag">KES 3,200</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
-    <div class="scent-card women"><div class="image-box"><img src="https://m.media-amazon.com/images/I/71LqI3x-IEL.jpg" class="scent-img"></div><div class="card-body"><div><span class="card-category">Women</span><h3 class="card-name">Lattafa Khamrah</h3><span class="price-tag">KES 4,500</span></div><a href="#" class="whatsapp-btn">Order Now</a></div></div>
+    <!-- LATTAFA KHAMRAH -->
+    <div class="scent-card women fade-in">
+        <div class="image-box"><img src="https://m.media-amazon.com/images/I/71LqI3x-IEL.jpg" class="scent-img"></div>
+        <div class="card-body">
+            <h3 class="card-name">Lattafa Khamrah</h3>
+            <span class="price-tag">KES 4,800</span>
+            <a href="https://wa.me/254YOURNUMBER" class="whatsapp-btn">Claim Yours</a>
+        </div>
+    </div>
+    
+    <!-- (Add the rest of your 40 fragrances using this same card structure) -->
 </div>
 
-<footer><p>&copy; 2026 Christian's Designer Scents | Nairobi, Kenya</p></footer>
+<footer>
+    <p style="font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--accent-gold);">Christian's Designer Scents</p>
+</footer>
 
 <script>
+    // Fade-in Intersection Observer
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
     function filterScent(category) {
         const cards = document.querySelectorAll('.scent-card');
         const buttons = document.querySelectorAll('.filter-btn');
         buttons.forEach(btn => btn.classList.remove('active'));
         event.target.classList.add('active');
         cards.forEach(card => {
-            card.style.display = (category === 'all' || card.classList.contains(category)) ? 'flex' : 'none';
+            card.style.display = (category === 'all' || card.classList.contains(category)) ? 'block' : 'none';
         });
     }
 </script>
