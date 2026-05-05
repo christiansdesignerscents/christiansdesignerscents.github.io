@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Christian's Designer Scents | Home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #F8F5F0;
+    --ivory: #EDE9E1;
+    --charcoal: #1C1B18;
+    --charcoal-light: #3D3C37;
+    --muted: #8A897F;
+    --gold: #B09A72;
+    --gold-light: #D4C4A8;
+    --white: #FFFFFF;
+  }
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 5%;
+    background: rgba(248, 245, 240, 0.92);
+    border-bottom: 1px solid var(--gold-light);
+    backdrop-filter: blur(8px);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: var(--charcoal);
+    letter-spacing: 0.08em;
+  }
+  .nav-logo span { color: var(--gold); }
+  nav ul { display: flex; gap: 1.5rem; list-style: none; }
+  nav a {
+    text-decoration: none;
+    color: var(--charcoal-light);
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .hero {
+    min-height: 100vh;
+    padding: 8rem 8% 4rem;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.4rem, 5vw, 4.6rem);
+    font-weight: 300;
+    line-height: 1.05;
+    margin-bottom: 1rem;
+  }
+  h1 em { color: var(--gold); font-style: italic; }
+  .hero p {
+    color: var(--muted);
+    max-width: 500px;
+    margin-bottom: 2rem;
+  }
+  .btn {
+    display: inline-block;
+    padding: 0.95rem 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.75rem;
+    text-decoration: none;
+    margin-right: 0.8rem;
+    transition: 0.2s;
+  }
+  .btn-primary {
+    background: var(--charcoal);
+    color: var(--cream);
+  }
+  .btn-primary:hover { background: var(--gold); color: var(--white); }
+  .btn-outline {
+    border: 1px solid var(--charcoal);
+    color: var(--charcoal);
+  }
+  .btn-outline:hover { background: var(--charcoal); color: var(--cream); }
+  .feature-card {
+    background: var(--white);
+    border: 1px solid var(--gold-light);
+    padding: 2rem;
+  }
+  .feature-card h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 0.6rem;
+  }
+  .feature-card p { color: var(--muted); margin-bottom: 1rem; }
+  .highlights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  .highlight {
+    border: 1px solid var(--ivory);
+    padding: 1rem;
+    background: #fcfbf8;
+  }
+  .highlight strong {
+    display: block;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+  footer {
+    background: var(--charcoal);
+    color: rgba(248,245,240,0.75);
+    padding: 2rem 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .wa-cta {
+    color: var(--gold-light);
+    text-decoration: none;
+    border: 1px solid rgba(212,196,168,0.4);
+    padding: 0.5rem 0.9rem;
+  }
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .highlights { grid-template-columns: 1fr; }
+    nav ul { display: none; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a href="home.html" class="nav-logo">Christian's <span>Designer</span> Scents</a>
+  <ul>
+    <li><a href="home.html">Home</a></li>
+    <li><a href="index (4).html">Perfume List</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div>
+    <h1>Wear the <em>art</em><br>of fine scent.</h1>
+    <p>Welcome to Christian's Designer Scents. Explore your next signature fragrance by note, mood, and style in our full perfume list.</p>
+    <a class="btn btn-primary" href="index (4).html">Browse Perfume List</a>
+    <a class="btn btn-outline" href="https://wa.me/254794376866?text=Hi%20Christian's%20Designer%20Scents!%20I%20need%20help%20choosing%20a%20perfume.">Chat on WhatsApp</a>
+  </div>
+
+  <div class="feature-card">
+    <h2>Why customers love us</h2>
+    <p>Fast Nairobi delivery, premium fragrance options, and direct WhatsApp support for fast ordering.</p>
+    <div class="highlights">
+      <div class="highlight">
+        <strong>40+ Scents</strong>
+        Designer and niche-inspired picks.
+      </div>
+      <div class="highlight">
+        <strong>Fast Delivery</strong>
+        Same-day and next-day options.
+      </div>
+      <div class="highlight">
+        <strong>Easy Ordering</strong>
+        One-tap WhatsApp checkout.
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>© 2025 Christian's Designer Scents. All rights reserved.</div>
+  <a class="wa-cta" href="https://wa.me/254794376866?text=Hi%20Christian's%20Designer%20Scents!%20I'd%20like%20to%20order%20a%20perfume.">WhatsApp: 254794376866</a>
+</footer>
+</body>
+</html>
