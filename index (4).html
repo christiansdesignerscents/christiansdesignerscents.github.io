@@ -1100,7 +1100,7 @@
     </div>
 
     <!-- WOMEN 1 -->
-    <div class="scent-card fade-in" data-gender="women">
+    <div class="scent-card fade-in" data-gender="women" data-image="https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?auto=format&fit=crop&w=900&q=80">
       <div class="card-visual" style="background:#FDF5EC;">
         <svg class="card-bottle" viewBox="0 0 60 110" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="22" y="3" width="16" height="10" rx="3" fill="#C8860A"/><rect x="10" y="13" width="40" height="90" rx="8" fill="#F5DFB0"/><rect x="10" y="13" width="40" height="90" rx="8" stroke="#C8860A" stroke-width="0.75" fill="none"/><rect x="17" y="35" width="26" height="36" rx="2" fill="none" stroke="#C8860A" stroke-width="0.5"/></svg>
       </div>
@@ -1393,8 +1393,8 @@
       </div>
     </div>
 
-    <!-- MEN 21 — Liquid Bran -->
-    <div class="scent-card fade-in" data-gender="men">
+    <!-- MEN 21 — Liquid Brun -->
+    <div class="scent-card fade-in" data-gender="men" data-image="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=900&q=80">
       <div class="card-visual" style="background:#E5EAF2;">
         <svg class="card-bottle" viewBox="0 0 60 110" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="22" y="3" width="16" height="10" rx="3" fill="#3A4A6A"/><rect x="10" y="13" width="40" height="90" rx="8" fill="#A8B8D0"/><rect x="10" y="13" width="40" height="90" rx="8" stroke="#3A4A6A" stroke-width="0.75" fill="none"/><rect x="17" y="35" width="26" height="36" rx="2" fill="none" stroke="#3A4A6A" stroke-width="0.5"/></svg>
       </div>
@@ -1696,7 +1696,14 @@
     for (const card of cards) {
       const name = card.querySelector('.card-name')?.innerText || '';
       const visual = card.querySelector('.card-visual');
+      const pinnedImage = card.dataset.image;
       if (!visual || !name) continue;
+      if (pinnedImage) {
+        visual.style.cssText += 'background-image:url(' + pinnedImage + ');background-size:cover;background-position:center;background-repeat:no-repeat;background-color:#f5f0eb;';
+        const svg = visual.querySelector('svg');
+        if (svg) svg.style.opacity = '0';
+        continue;
+      }
       try {
         const query = encodeURIComponent(name + ' perfume bottle');
         const res = await fetch('https://api.openverse.org/v1/images/?q=' + query + '&license_type=commercial&page_size=3&category=photograph');
