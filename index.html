@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luxe Perfumes | Home</title>
+<title>Christian's Designer Scents | Home</title>
 <link rel="icon" type="image/png" href="file:///C:/Users/trevo/.cursor/projects/c-Users-trevo-OneDrive-Documents-Downloads/assets/c__Users_trevo_AppData_Roaming_Cursor_User_workspaceStorage_48b2324641c86f465f47abdde6b9688b_images_image-80e15f0a-a14a-4288-92ff-714b91959d66.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -249,6 +249,7 @@
     <p>Answer these guided questions before entering. We use your answers to suggest the scent family that should fit you best.</p>
 
     <div class="quiz-grid">
+      <div class="quiz-item" style="grid-column: 1 / -1; background: #28282f; border-color: var(--gold);"><label for="q0" style="color: var(--gold-light); font-size: 0.82rem;">0) I'm shopping for...</label><select id="q0"><option value="men">Men's fragrances</option><option value="women">Women's fragrances</option><option value="unisex">Unisex / open to both</option></select></div>
       <div class="quiz-item"><label for="q1">1) How do you want to feel?</label><select id="q1"><option value="fresh">Fresh and clear</option><option value="warm">Warm and intense</option></select></div>
       <div class="quiz-item"><label for="q2">2) What memory vibe do you love?</label><select id="q2"><option value="comfort">Comforting and cozy</option><option value="adventure">Travel and adventure</option></select></div>
       <div class="quiz-item"><label for="q3">3) Where do you feel most yourself?</label><select id="q3"><option value="outdoors">Outdoors / ocean</option><option value="city">City / night life</option></select></div>
@@ -321,6 +322,7 @@
 
 <script>
   function getRecommendation() {
+    const gender = document.getElementById('q0').value;
     const answers = [];
     for (let i = 1; i <= 10; i += 1) {
       answers.push(document.getElementById('q' + i).value);
@@ -337,25 +339,65 @@
       }
     });
 
-    if (fresh >= warm + 2) {
-      return {
-        profile: "fresh",
-        text: "Fresh / citrus / aquatic profiles will likely suit you best. Start with clean bergamot, sea-note, and woody-fresh scents.",
-        matches: ["Dior Sauvage", "Bleu de Chanel", "Armani Acqua di Gio", "Rasasi Hawas", "Montblanc Explorer"]
-      };
-    }
-    if (warm >= fresh + 2) {
-      return {
-        profile: "warm",
-        text: "Warm / woody / oriental profiles will likely suit you best. Start with amber, vanilla, oud, spice, and musky scents.",
-        matches: ["Tom Ford Oud Wood", "Spicebomb Extreme", "Lattafa Asad", "YSL Black Opium", "Lattafa Khamrah"]
-      };
-    }
-    return {
-      profile: "balanced",
-      text: "Balanced profile: you can wear both fresh daytime scents and warm evening scents. A versatile woody-aromatic or soft oriental will fit you well.",
-      matches: ["YSL Y", "Chanel Coco Mademoiselle", "Burberry Goddess", "Prada Carbon", "Valentino Born in Roma"]
+    const profiles = {
+      men: {
+        fresh: {
+          profile: "fresh",
+          text: "Fresh / citrus / aquatic profiles will likely suit you best. Start with clean bergamot, sea-note, and woody-fresh scents.",
+          matches: ["Dior Sauvage", "Bleu de Chanel", "Armani Acqua di Gio", "Rasasi Hawas", "Montblanc Explorer"]
+        },
+        warm: {
+          profile: "warm",
+          text: "Warm / woody / oriental profiles will likely suit you best. Start with amber, vanilla, oud, spice, and musky scents.",
+          matches: ["Tom Ford Oud Wood", "Spicebomb Extreme", "Lattafa Asad", "Creed Aventus", "Lattafa Khamrah"]
+        },
+        balanced: {
+          profile: "balanced",
+          text: "Balanced profile: you can move between fresh and warm. A versatile woody-aromatic will fit any occasion.",
+          matches: ["YSL Y", "Prada Carbon", "Valentino Born in Roma Uomo", "Hugo Boss Bottled", "Gucci Guilty Pour Homme"]
+        }
+      },
+      women: {
+        fresh: {
+          profile: "fresh",
+          text: "Fresh / floral / citrus profiles will likely suit you best. Think bright petals, green tea, and clean musks.",
+          matches: ["Chanel Chance Eau Fraîche", "Dior Miss Dior Blooming Bouquet", "Armani Si", "Dolce & Gabbana Light Blue", "Lattafa Raghba Wood"]
+        },
+        warm: {
+          profile: "warm",
+          text: "Warm / gourmand / oriental profiles will suit you best. Rich florals, vanilla, oud, and amber will feel like you.",
+          matches: ["YSL Black Opium", "Burberry Goddess", "Lattafa Khamrah", "Tom Ford Black Orchid", "Lancôme La Vie Est Belle"]
+        },
+        balanced: {
+          profile: "balanced",
+          text: "Balanced floral profile: you can wear soft daytime florals and warm evenings. A woody-floral or soft oriental is your sweet spot.",
+          matches: ["Chanel Coco Mademoiselle", "Dior J'adore", "Valentino Donna Born in Roma", "Gucci Flora", "Burberry Her"]
+        }
+      },
+      unisex: {
+        fresh: {
+          profile: "fresh",
+          text: "Fresh / clean / green unisex profiles will suit you. Citrus, aquatics, and airy woods work on anyone.",
+          matches: ["Maison Margiela Replica Beach Walk", "CK One", "Armani Acqua di Gio", "Rasasi Hawas", "Byredo Mojave Ghost"]
+        },
+        warm: {
+          profile: "warm",
+          text: "Warm / woody / resinous unisex profiles are your match. Oud, amber, and deep musks transcend categories.",
+          matches: ["Tom Ford Oud Wood", "Lattafa Asad", "Le Labo Santal 33", "Lattafa Khamrah", "Maison Margiela Replica Jazz Club"]
+        },
+        balanced: {
+          profile: "balanced",
+          text: "Versatile unisex profile: soft florals blended with woods and musk will feel effortlessly personal.",
+          matches: ["YSL Libre", "Valentino Born in Roma", "Gucci Bloom", "Chanel Gabrielle", "Dior Sauvage Elixir"]
+        }
+      }
     };
+
+    const genderProfiles = profiles[gender] || profiles.unisex;
+
+    if (fresh >= warm + 2) return genderProfiles.fresh;
+    if (warm >= fresh + 2) return genderProfiles.warm;
+    return genderProfiles.balanced;
   }
 
   function renderMatchList(matches) {
@@ -383,11 +425,17 @@
   }
 
   function skipQuiz() {
-    const defaultText = "Balanced profile: test one fresh scent and one warm scent, then choose what feels most 'you'.";
-    localStorage.setItem('perfumeRecommendation', defaultText);
-    localStorage.setItem('perfumeMatches', JSON.stringify(["YSL Y", "Prada Carbon", "Valentino Born in Roma"]));
-    document.getElementById('recommend-text').textContent = defaultText;
-    renderMatchList(["YSL Y", "Prada Carbon", "Valentino Born in Roma"]);
+    const gender = document.getElementById('q0').value;
+    const defaults = {
+      men:    { text: "Balanced profile: test one fresh scent and one warm scent, then choose what feels most 'you'.", matches: ["YSL Y", "Prada Carbon", "Bleu de Chanel"] },
+      women:  { text: "Balanced profile: try a fresh floral and a warm oriental to find your signature.", matches: ["Chanel Coco Mademoiselle", "Dior J'adore", "Burberry Her"] },
+      unisex: { text: "Balanced profile: test one fresh scent and one warm scent, then choose what feels most 'you'.", matches: ["YSL Libre", "Valentino Born in Roma", "Gucci Bloom"] }
+    };
+    const d = defaults[gender] || defaults.unisex;
+    localStorage.setItem('perfumeRecommendation', d.text);
+    localStorage.setItem('perfumeMatches', JSON.stringify(d.matches));
+    document.getElementById('recommend-text').textContent = d.text;
+    renderMatchList(d.matches);
     showHome();
   }
 
