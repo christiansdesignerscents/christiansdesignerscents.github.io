@@ -1788,6 +1788,81 @@
   if (showMatchesFromUrl && savedMatches.length) {
     showQuizMatches();
   }
+ <!-- ... (All previous CSS and HTML remains exactly the same) ... -->
+<script>
+  // --- NEW SMS NOTIFICATION LOGIC ---
+  async function sendSmsNotification() {
+    console.log("Sending notification to 254735042143...");
+    
+    /* 
+       NOTE TO USER: 
+       Because browsers cannot send SMS, you need a "Webhook" URL.
+       1. Create a free account at Make.com or Zapier.
+       2. Create a "Webhook" trigger that connects to an "SMS" module.
+       3. Replace 'YOUR_WEBHOOK_URL_HERE' below with the link they give you.
+    */
+    const WEBHOOK_URL = 'YOUR_WEBHOOK_URL_HERE'; 
+
+    if (WEBHOOK_URL === 'YOUR_WEBHOOK_URL_HERE') {
+      console.warn("SMS Gateway not configured. Please add your Webhook URL to the code.");
+      return;
+    }
+
+    try {
+      await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          phoneNumber: '254735042143',
+          message: ' someone has ordered and item!',
+          timestamp: new Date().toISOString()
+        })
+      });
+    } catch (err) {
+      console.error("SMS Notification failed:", err);
+    }
+  }
+  // ---------------------------------
+
+  // Auto-inject WhatsApp order buttons on every scent card
+  document.querySelectorAll('.scent-card').forEach(card => {
+    const name = card.querySelector('.card-name')?.innerText || 'this fragrance';
+    const price = card.querySelector('.card-price')?.innerText || '';
+    const msg = encodeURIComponent("Hi LUXE PERFUMES! I'd like to order " + name + " (" + price + "). Please confirm availability and delivery details.");
+    
+    const btn = document.createElement('a');
+    btn.href = 'https://wa.me/254794376866?text=' + msg;
+    btn.target = '_blank';
+    btn.className = 'whatsapp-btn';
+    btn.innerHTML = '📲 &nbsp; Order via WhatsApp';
+    
+    // TRIGGER SMS NOTIFICATION when this button is clicked
+    btn.addEventListener('click', () => {
+      sendSmsNotification();
+    });
+    
+    card.querySelector('.card-body').appendChild(btn);
+
+    const mpesaBtn = document.createElement('button');
+    mpesaBtn.type = 'button';
+    mpesaBtn.className = 'mpesa-btn';
+    mpesaBtn.innerHTML = '💳 &nbsp; Pay with M-Pesa';
+    mpesaBtn.addEventListener('click', () => payWithMpesa(name, price));
+    card.querySelector('.card-body').appendChild(mpesaBtn);
+  });
+
+  function payWithMpesa(name, price) {
+    // TRIGGER SMS NOTIFICATION when M-Pesa is clicked
+    sendSmsNotification();
+
+    const mpesaNumber = '254794376866';
+    const instructions = "1) Open M-Pesa\n2) Send Money to " + mpesaNumber + "\n3) Amount: " + price + "\n4) Reference: " + name + "\n5) Send your M-Pesa confirmation code to us on WhatsApp.";
+    alert("M-Pesa Payment Instructions\n\n" + instructions);
+    const confirmMsg = encodeURIComponent("Hi LUXE PERFUMES! I have paid for " + name + " (" + price + ") via M-Pesa to " + mpesaNumber + ". My M-Pesa confirmation code is: ");
+    window.open('https://wa.me/254794376866?text=' + confirmMsg, '_blank');
+  }
+
+  // ... (Rest of the filtering and image loading scripts remain exactly the same) ...
 </script>
 </body>
 </html>
